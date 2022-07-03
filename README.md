@@ -1,2 +1,4 @@
 # hello-world-qemu-template-xpack
-A source xPack with a template to generate Hello World projects that run on QEMU
+
+This project does not use the `master` branch, please
+switch to the `xpack` branch to get the project files.
