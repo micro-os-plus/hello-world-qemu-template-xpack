@@ -22,7 +22,7 @@ const fs = require('fs')
 const path = require('path')
 // const util = require('util')
 
-// https://www.npmjs.com/package/shx
+// https://www.npmjs.com/package/shelljs
 const shx = require('shelljs')
 
 const properties = require('../lib/template.js').properties
@@ -37,11 +37,7 @@ class Test {
   static start () {
     // Instantiate a new test.
     const test = new Test()
-    if (process.argv.length > 2) {
-      test.run(process.argv[2])
-    } else {
-      test.run('')
-    }
+    process.exitCode = test.run(process.argv.length > 2 ? process.argv[2] : '')
   }
 
   constructor () {
@@ -65,6 +61,7 @@ class Test {
     shx.echo(`$ ${uninstall}`)
     shx.exec(uninstall)
 
+    let exitCode = 0
     this.startTime = Date.now()
     if (complexity === 'all') {
       shx.echo('Testing thoroughly...')
@@ -72,11 +69,14 @@ class Test {
         for (const buildGenerator of
           Object.keys(properties.buildGenerator.items)) {
           for (const language of Object.keys(properties.language.items)) {
-            this.runOne({
+            exitCode = this.runOne({
               target,
               buildGenerator,
               language
             })
+            if (exitCode !== 0) {
+              return exitCode
+            }
             this.count++
           }
         }
@@ -87,33 +87,46 @@ class Test {
         for (const buildGenerator of
           Object.keys(properties.buildGenerator.items)) {
           for (const language of Object.keys(properties.language.items)) {
-            this.runOne({
+            exitCode = this.runOne({
               target,
               buildGenerator,
               language
             })
+            if (exitCode !== 0) {
+              return exitCode
+            }
             this.count++
           }
         }
       }
     } else if (complexity === 'develop') {
       shx.echo('Testing one development cases...')
-      this.runOne({
+      exitCode = this.runOne({
         // target: 'cortex-m0',
         // target: 'cortex-m7f',
-        // target: 'cortex-a15',
-        target: 'cortex-a72',
-        // buildGenerator: 'cmake',
-        buildGenerator: 'meson',
+        target: 'cortex-a15',
+        // target: 'cortex-a72',
+        buildGenerator: 'cmake',
+        // buildGenerator: 'meson',
         language: 'cpp'
       })
+      if (exitCode !== 0) {
+        return exitCode
+      }
       this.count++
     }
 
     const durationString = this.formatDuration(Date.now() - this.startTime)
     shx.echo(`Completed in ${durationString}.`)
+
+    return 0
   }
 
+  /**
+   *
+   * @param {*} props
+   * @returns exit code
+   */
   runOne (props) {
     // https://www.npmjs.com/package/shelljs
 
@@ -159,7 +172,7 @@ class Test {
       shx.exec(command)
     } catch (err) {
       shx.echo()
-      return
+      return 1
     }
 
     if (enableXpmLink) {
@@ -170,7 +183,7 @@ class Test {
         shx.exec(command)
       } catch (err) {
         shx.echo()
-        return
+        return 1
       }
     }
 
@@ -178,15 +191,17 @@ class Test {
     command = 'xpm run test-all'
     shx.echo(`$ ${command}`)
     try {
-      shx.exec(command)
+      const x  = shx.exec(command)
     } catch (err) {
       shx.echo()
-      return
+      return 1
     }
 
     shx.config.silent = true
     shx.popd()
     shx.config.silent = false
+
+    return 0
   }
 
   /**
