@@ -10,6 +10,7 @@
     "mkdir",
     "npmignore",
     "npmjs",
+    "postversion",
     "semihosted",
     "semihosting",
     "xpack",
