@@ -53,5 +53,5 @@ jobs:
     - name: Satisfy project dependencies
       run: npm install
 
-    - name: Run test-native-cmake-gcc11
+    - name: Run test-ci
       run: npm run test-ci
