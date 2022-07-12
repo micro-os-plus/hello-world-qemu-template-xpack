@@ -1,0 +1,69 @@
+{
+  "name": "@micro-os-plus/hello-world-qemu-template",
+  "version": "0.1.0",
+  "description": "A source xPack  / npm package with a template to generate semihosted Hello World projects running on QEMU",
+  "main": "./index.js",
+  "scripts": {
+    "fix": "standard --fix",
+    "test-ci": "node ./tests/test.js ci",
+    "test-all": "node ./tests/test.js all",
+    "test-develop": "node ./tests/test.js develop",
+    "git-log": "git log --pretty='%cd * %h %s' --date=short",
+    "outdated": "npm outdated",
+    "pack": "npm pack",
+    "version-patch": "npm version patch",
+    "version-minor": "npm version minor",
+    "npm-install": "npm install",
+    "npm-audit": "npm audit fix --force"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues/"
+  },
+  "homepage": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/",
+  "keywords": [
+    "xpack",
+    "template",
+    "c++",
+    "cmake",
+    "meson",
+    "qemu",
+    "semihosting"
+  ],
+  "author": {
+    "name": "Liviu Ionescu",
+    "email": "ilg@livius.net",
+    "url": "https://github.com/ilg-ul/"
+  },
+  "license": "MIT",
+  "config": {},
+  "dependencies": {
+    "@ilg/cli-start-options": "^0.7.1",
+    "cp-file": "^9.0.0",
+    "del": "^6.1.1",
+    "git-config-path": "^2.0.0",
+    "liquidjs": "^9.37.0",
+    "make-dir": "^3.1.0",
+    "parse-git-config": "^3.0.0"
+  },
+  "bundledDependencies": [
+    "@ilg/cli-start-options",
+    "cp-file",
+    "del",
+    "git-config-path",
+    "liquidjs",
+    "make-dir",
+    "parse-git-config"
+  ],
+  "devDependencies": {
+    "shelljs": "^0.8.5",
+    "standard": "^17.0.0",
+    "xpm": "^0.13.6"
+  },
+  "xpack": {
+    "minimumXpmRequired": "0.13.6"
+  }
+}

@@ -1,0 +1,196 @@
+{
+  "name": "@my-scope/{{ projectName }}",
+  "version": "0.1.0",
+  "description": "A source xPack with a semihosted Hello World application running on QEMU",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/{{ githubId }}/{{ projectName }}.git"
+  },
+  "bugs": {
+    "url": "https://github.com/{{ githubId }}/{{ projectName }}/issues/"
+  },
+  "homepage": "https://github.com/{{ githubId }}/{{ projectName }}/",
+  "keywords": [
+    "xpack"
+  ],
+  "author": {
+    "name": "{{ author.name }}",
+    "email": "{{ author.email }}",
+    "url": "{{ author.url }}"
+  },
+{% if author.email != "ilg@livius.net" -%}
+  "contributors": [
+    {
+      "name": "Liviu Ionescu",
+      "email": "ilg@livius.net",
+      "url": "https://github.com/ilg-ul/"
+    }
+  ],
+{% endif -%}
+  "license": "MIT",
+  "config": {},
+  "dependencies": {
+{% if target == "cortex-m0" -%}
+    "@micro-os-plus/architecture-cortexm": "^6.1.0",
+    "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+{% elsif target == "cortex-m7f" -%}
+    "@micro-os-plus/architecture-cortexm": "^6.1.0",
+    "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+{% elsif target == "cortex-a15" -%}
+    "@micro-os-plus/architecture-cortexa": "^2.0.0",
+    "@micro-os-plus/devices-qemu-aarch32": "^3.0.0",
+{% elsif target == "cortex-a72" -%}
+    "@micro-os-plus/architecture-cortexa": "^2.0.0",
+    "@micro-os-plus/devices-qemu-aarch64": "^3.0.0",
+{% endif -%}
+    "@micro-os-plus/build-helper": "^2.10.1",
+    "@micro-os-plus/diag-trace": "^4.0.0",
+    "@micro-os-plus/semihosting": "^5.0.0",
+    "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6"
+  },
+  "devDependencies": {
+{% if buildGenerator == "cmake" -%}
+    "@xpack-dev-tools/cmake": "3.20.6-2.1",
+{% elsif buildGenerator == "meson" -%}
+    "@xpack-dev-tools/meson-build": "0.59.4-1.1",
+{% endif -%}
+    "@xpack-dev-tools/ninja-build": "1.10.2-5.1",
+{% if target == "cortex-a72" -%}
+    "@xpack-dev-tools/aarch64-none-elf-gcc": "11.2.1-1.2.2",
+{% else -%}
+    "@xpack-dev-tools/arm-none-eabi-gcc": "11.2.1-1.2.2",
+{% endif -%}
+    "@xpack-dev-tools/qemu-arm": "7.0.0-1.1"
+  },
+  "xpack": {
+    "minimumXpmRequired": "0.13.6",
+    "properties": {
+      {% raw %}"buildFolderRelativePath": "{{ 'build' | path_join: configuration.name | to_filename | downcase }}",
+      "buildFolderRelativePathPosix": "{{ 'build' | path_posix_join: configuration.name | downcase }}",{% endraw %}
+{% if buildGenerator == "cmake" -%}
+      {% raw %}"commandCMakePrepare": "{{ properties.commandCMakeReconfigure }} --log-level=VERBOSE",
+      "commandCMakePrepareWithToolchain": "{{ properties.commandCMakePrepare }} -D CMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchains/{{ properties.toolchainFileName }}",
+      "commandCMakeReconfigure": "cmake -S . -B {{ properties.buildFolderRelativePathPosix }} -G Ninja -D CMAKE_BUILD_TYPE={{ properties.buildType }} -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_EXPORT_COMPILE_COMMANDS=ON",
+      "commandCMakeBuild": "cmake --build {{ properties.buildFolderRelativePathPosix }}",
+      "commandCMakeBuildVerbose": "cmake --build {{ properties.buildFolderRelativePathPosix }} --verbose",
+      "commandCMakeClean": "cmake --build {{ properties.buildFolderRelativePathPosix }} --target clean",
+      "commandCMakePerformTests": "cd {{ properties.buildFolderRelativePath }} && ctest -V"{% endraw %}
+{% elsif buildGenerator == "meson" -%}
+      {% raw %}"commandMesonPrepare": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} {{ properties.buildFolderRelativePathPosix }} .",
+      "commandMesonPrepareWithToolchain": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --native-file xpacks/micro-os-plus-build-helper/meson/toolchains/{{ properties.toolchainFileName }} --native-file platform-{{ properties.platformName }}/meson/native.ini {{ properties.buildFolderRelativePathPosix }} .",
+      "commandMesonPrepareCross": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --cross xpacks/micro-os-plus-build-helper/meson/toolchains/{{ properties.toolchainFileName }} --cross platform-{{ properties.platformName }}/meson/cross.ini {{ properties.buildFolderRelativePathPosix }} .",
+      "commandMesonReconfigure": "meson setup --reconfigure {{ properties.buildFolderRelativePathPosix }} .",
+      "commandMesonBuild": "meson compile -C {{ properties.buildFolderRelativePathPosix }}",
+      "commandMesonBuildVerbose": "meson compile -C {{ properties.buildFolderRelativePathPosix }} --verbose",
+      "commandMesonClean": "meson compile -C {{ properties.buildFolderRelativePathPosix }} --clean",
+      "commandMesonPerformTests": "meson test -C {{ properties.buildFolderRelativePathPosix }} --verbose"{% endraw %}
+{% endif -%}
+    },
+    "actions": {
+      "test-{{ platform }}-{{ buildGenerator }}-debug": [
+        "xpm run prepare --config {{ platform }}-{{ buildGenerator }}-debug",
+        "xpm run build --config {{ platform }}-{{ buildGenerator }}-debug",
+        "xpm run test --config {{ platform }}-{{ buildGenerator }}-debug"
+      ],
+      "test-{{ platform }}-{{ buildGenerator }}-release": [
+        "xpm run prepare --config {{ platform }}-{{ buildGenerator }}-release",
+        "xpm run build --config {{ platform }}-{{ buildGenerator }}-release",
+        "xpm run test --config {{ platform }}-{{ buildGenerator }}-release"
+      ],
+      "test-all": [
+        "xpm run test-{{ platform }}-{{ buildGenerator }}-debug",
+        "xpm run test-{{ platform }}-{{ buildGenerator }}-release"
+      ],
+      "clean-all": [
+        "xpm run clean --config {{ platform }}-{{ buildGenerator }}-debug",
+        "xpm run clean --config {{ platform }}-{{ buildGenerator }}-release"
+      ],
+      "link-deps": [
+{% if target == "cortex-m0" -%}
+        "xpm link @micro-os-plus/architecture-cortexm --quiet",
+        "xpm link @micro-os-plus/devices-qemu-cortexm --quiet",
+{% elsif target == "cortex-m7f" -%}
+        "xpm link @micro-os-plus/architecture-cortexm --quiet",
+        "xpm link @micro-os-plus/devices-qemu-cortexm --quiet",
+{% elsif target == "cortex-a15" -%}
+        "xpm link @micro-os-plus/architecture-cortexa --quiet",
+        "xpm link @micro-os-plus/devices-qemu-aarch32 --quiet",
+{% elsif target == "cortex-a72" -%}
+        "xpm link @micro-os-plus/architecture-cortexa --quiet",
+        "xpm link @micro-os-plus/devices-qemu-aarch64 --quiet",
+{% endif -%}
+        "xpm link @micro-os-plus/build-helper --quiet",
+        "xpm link @micro-os-plus/diag-trace --quiet",
+        "xpm link @micro-os-plus/semihosting --quiet",
+        "xpm link @xpack-3rd-party/arm-cmsis-core --quiet"
+      ]
+    },
+{% if buildGenerator == "cmake" -%}
+    "buildConfigurations": {
+      "{{ platform }}-{{ buildGenerator }}-debug": {
+        "properties": {
+          "buildType": "Debug",
+          "platformName": "{{ platform }}",
+{% if target == "cortex-a72" -%}
+          "toolchainFileName": "aarch64-none-elf-gcc.cmake"
+{% else -%}
+          "toolchainFileName": "arm-none-eabi-gcc.cmake"
+{% endif -%}
+        },
+        "actions": {
+          {% raw %}"prepare": "{{ properties.commandCMakePrepareWithToolchain }}",
+          "build": [
+            "{{ properties.commandCMakeReconfigure }}",
+            "{{ properties.commandCMakeBuild }}"
+          ],
+          "test": "{{ properties.commandCMakePerformTests }}",
+          "clean": "{{ properties.commandCMakeClean }}"{% endraw %}
+        }
+      },
+      "{{ platform }}-{{ buildGenerator }}-release": {
+        "inherit": [
+          "{{ platform }}-{{ buildGenerator }}-debug"
+        ],
+        "properties": {
+          "buildType": "Release"
+        }
+      }
+    }
+{% elsif buildGenerator == "meson" -%}
+    "buildConfigurations": {
+      "{{ platform }}-{{ buildGenerator }}-debug": {
+        "properties": {
+          "buildType": "debug",
+          "platformName": "{{ platform }}",
+    {% if target == "cortex-a72" -%}
+          {% raw %}"toolchainFileName": "aarch64-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
+    {% else -%}
+          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
+    {% endif -%}
+        },
+        "actions": {
+          {% raw %}"prepare": "{{ properties.commandMesonPrepareCross }}",
+          "build": [
+            "{{ properties.commandMesonReconfigure }}",
+            "{{ properties.commandMesonBuild }}"
+          ],
+          "test": "{{ properties.commandMesonPerformTests }}",
+          "clean": "{{ properties.commandMesonClean }}"{% endraw %}
+        }
+      },
+      "{{ platform }}-{{ buildGenerator }}-release": {
+        "inherit": [
+          "{{ platform }}-{{ buildGenerator }}-debug"
+        ],
+        "properties": {
+          "buildType": "minsize"
+        }
+      }
+    }
+{% endif -%}
+  }
+}

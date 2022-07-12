@@ -1,0 +1,57 @@
+# https://help.github.com/en/actions
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+# https://github.com/actions
+
+# https://github.com/micro-os-plus/utils-lists-xpack/actions/workflows/CI.yml
+name: CI on Push
+
+on:
+  push:
+    paths-ignore:
+      - '.vscode/**'
+      - 'LICENSE'
+      - '**.md'
+      - '.clang-format'
+      - '.gitignore'
+      - '.npmignore'
+      - '.github/workflows/test-all.yml'
+      - 'tests/scripts/**'
+    # tags-ignore: # Does not work, nothing triggers.
+    #   - '**'
+
+jobs:
+  ci-test:
+    name: 'CI hello-world-qemu-template tests'
+
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        # https://docs.github.com/en/actions/using-github-hosted-runners/about-github-hosted-runners
+        os: [ubuntu-20.04, macos-11, windows-2022]
+        node-version: [16]
+        xpm-version: ['0.13.6']
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 3
+
+    - name: Setup Node.js ${{ matrix.node-version }} on ${{ matrix.os }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Show environment
+      run: |
+        uname -a
+        node --version
+        npm --version
+        env
+
+    - name: Satisfy project dependencies
+      run: npm install
+
+    - name: Run test-native-cmake-gcc11
+      run: npm run test-ci

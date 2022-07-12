@@ -1,0 +1,19 @@
+{
+  "editor.rulers": [
+    80
+  ],
+  "cSpell.ignoreWords": [
+    "Ionescu",
+    "Liviu",
+    "cmake",
+    "dirents",
+    "mkdir",
+    "npmignore",
+    "npmjs",
+    "semihosted",
+    "semihosting",
+    "xpack",
+    "xpacks"
+  ],
+  "cmake.configureOnOpen": false
+}
