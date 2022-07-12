@@ -113,7 +113,7 @@ function(add_test_executable name)
     # Including files from other packages is not very nice, but functional.
     # Use absolute paths, otherwise set -L.
     -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-devices-qemu-aarch32/linker-scripts/mem-cortex-a15.ld
-    -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexa/linker-scripts/sections-ram.ld
+    -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-aarch32/linker-scripts/sections-ram.ld
   )
 
   target_link_libraries(${name}  PRIVATE

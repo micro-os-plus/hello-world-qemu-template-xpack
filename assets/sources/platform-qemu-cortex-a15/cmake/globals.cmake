@@ -19,7 +19,7 @@ message(VERBOSE "Including platform-qemu-cortex-a15 globals...")
 
 # -----------------------------------------------------------------------------
 
-# Required in devices-qemu-cortexa.
+# Required in devices-qemu-aarch32.
 set(xpack_device_compile_definition "DEVICE_QEMU_CORTEX_A15")
 
 # Global definitions.

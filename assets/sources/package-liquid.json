@@ -41,10 +41,10 @@
     "@micro-os-plus/architecture-cortexm": "^6.1.0",
     "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
 {% elsif target == "cortex-a15" -%}
-    "@micro-os-plus/architecture-cortexa": "^2.0.0",
-    "@micro-os-plus/devices-qemu-aarch32": "^3.0.0",
+    "@micro-os-plus/architecture-aarch32": "^3.0.0",
+    "@micro-os-plus/devices-qemu-aarch32": "^3.0.1",
 {% elsif target == "cortex-a72" -%}
-    "@micro-os-plus/architecture-cortexa": "^2.0.0",
+    "@micro-os-plus/architecture-aarch64": "^3.0.0",
     "@micro-os-plus/devices-qemu-aarch64": "^3.0.0",
 {% endif -%}
     "@micro-os-plus/build-helper": "^2.10.1",
@@ -117,10 +117,10 @@
         "xpm link @micro-os-plus/architecture-cortexm --quiet",
         "xpm link @micro-os-plus/devices-qemu-cortexm --quiet",
 {% elsif target == "cortex-a15" -%}
-        "xpm link @micro-os-plus/architecture-cortexa --quiet",
+        "xpm link @micro-os-plus/architecture-aarch32 --quiet",
         "xpm link @micro-os-plus/devices-qemu-aarch32 --quiet",
 {% elsif target == "cortex-a72" -%}
-        "xpm link @micro-os-plus/architecture-cortexa --quiet",
+        "xpm link @micro-os-plus/architecture-aarch64 --quiet",
         "xpm link @micro-os-plus/devices-qemu-aarch64 --quiet",
 {% endif -%}
         "xpm link @micro-os-plus/build-helper --quiet",

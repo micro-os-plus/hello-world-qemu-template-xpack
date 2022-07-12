@@ -20,7 +20,7 @@ message('Including platform-qemu-aarch32 globals...')
 
 # -----------------------------------------------------------------------------
 
-# Required in devices-qemu-cortexa.
+# Required in devices-qemu-aarch32.
 xpack_device_compile_definition='DEVICE_QEMU_CORTEX_A15'
 
 # -----------------------------------------------------------------------------
@@ -101,12 +101,12 @@ xpack_dependencies = [
   # -
   # 'xpack-3rd-party-arm-cmsis-core',
   # (architecture) -
-  'xpacks/micro-os-plus-architecture-cortexa',
+  'xpacks/micro-os-plus-architecture-aarch32',
 
   # +(diag_trace, architecture) >semihosting
   'xpacks/micro-os-plus-semihosting',
 
-  # +(arm_cmsis_core_m, devices_cortexa, startup) >devices_qemu_aarch32
+  # +(arm_cmsis_core_m, devices_aarch32, startup) >devices_qemu_aarch32
   'xpacks/micro-os-plus-devices-qemu-aarch32',
 ]
 

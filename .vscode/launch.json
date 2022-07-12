@@ -11,6 +11,7 @@
       "program": "${workspaceRoot}/tests/test.js",
       "stopOnEntry": true,
       "args": [
+        "develop"
       ],
       "cwd": "${workspaceRoot}",
       "preLaunchTask": null,

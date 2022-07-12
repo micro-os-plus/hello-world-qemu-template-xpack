@@ -37,11 +37,14 @@ build/
 # patches/
 # pkgconfig/
 # scripts/
-README-*
+# README-*
+/README-*
+
 # CHANGELOG.*
 # LICENSE-*
 .appveyor.yml
 .travis.yml
-.clang-format
+#.clang-format
+
 
 # End

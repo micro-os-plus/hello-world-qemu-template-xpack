@@ -15,7 +15,7 @@
 # This file adds the platform dependencies.
 
 set(xpack_dependencies_folders
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexa"
+  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-aarch32"
   "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-devices-qemu-aarch32"
   "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-diag-trace"
   "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-semihosting"
