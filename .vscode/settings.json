@@ -5,17 +5,35 @@
   "cSpell.ignoreWords": [
     "Ionescu",
     "Liviu",
+    "aarch",
+    "autotools",
+    "buildtype",
     "cmake",
+    "cmsis",
+    "cortexm",
+    "ctest",
+    "diag",
     "dirents",
+    "eabi",
+    "endraw",
+    "ikey",
+    "ival",
+    "liquidjs",
+    "minsize",
     "mkdir",
     "npmignore",
     "npmjs",
     "postversion",
     "semihosted",
     "semihosting",
+    "virt",
     "xpack",
     "xpacks"
   ],
   "cmake.configureOnOpen": false,
-  "cmake.ignoreCMakeListsMissing": true
+  "cmake.ignoreCMakeListsMissing": true,
+  "files.associations": {
+    "*.rb": "ruby",
+    "iostream": "cpp"
+  }
 }
