@@ -13,15 +13,17 @@ Before making the release, perform some checks and tweaks.
 
 ### Update npm packages
 
-- `npm outdated`
-- edit `package.json` and `npm install`
+- `npm outdated` & `npm update`
+- or edit `package.json` and `npm install`
 - repeat until everything is up to date
+- for cp-file, stick to v9.1.0 as the latest before updating to import
 
 Dependencies
 
 - <https://www.npmjs.com/package/shelljs>
 - <https://www.npmjs.com/package/standard>
 - <https://www.npmjs.com/package/xpm>
+- <https://www.npmjs.com/package/cp-file>
 
 ### Check Git
 
