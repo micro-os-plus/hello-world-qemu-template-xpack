@@ -102,7 +102,7 @@ To manually fix compliance with the style guide (where possible):
 ```console
 % npm run fix
 
-> @micro-os-plus/hello-world-qemu-template@1.0.0 fix
+> @micro-os-plus/hello-world-qemu-template@1.0.1 fix
 > standard --fix
 
 ```
