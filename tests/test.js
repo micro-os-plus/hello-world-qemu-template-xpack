@@ -124,17 +124,17 @@ class Test {
 
   /**
    *
-   * @param {*} props
-   * @returns exit code
+   * @param {*} properties Configuration properties.
+   * @returns {int} exit code
    */
-  runOne (props) {
+  runOne (properties) {
     // https://www.npmjs.com/package/shelljs
 
     shx.set('-e') // Exit upon error
 
-    const cnt = ('0000' + this.count).slice(-3)
-    const name =
-      `${cnt}-${props.target}-${props.buildGenerator}-${props.language}`
+    const count = ('0000' + this.count).slice(-3)
+    const name = `${count}-` +
+      `${properties.target}-${properties.buildGenerator}-${properties.language}`
 
     shx.echo()
     shx.echo(`Testing '${name}'...`)
@@ -152,8 +152,8 @@ class Test {
 
     const projectFolderPath = path.dirname(__dirname)
 
-    let command = `xpm init --template "${projectFolderPath}" --name ${cnt}`
-    for (const [key, value] of Object.entries(props)) {
+    let command = `xpm init --template "${projectFolderPath}" --name ${count}`
+    for (const [key, value] of Object.entries(properties)) {
       command += ` --property ${key}=${value}`
     }
     if (this.complexity === 'develop') {
@@ -191,7 +191,7 @@ class Test {
     command = 'xpm run test-all'
     shx.echo(`$ ${command}`)
     try {
-      const x  = shx.exec(command)
+      shx.exec(command)
     } catch (err) {
       shx.echo()
       return 1
