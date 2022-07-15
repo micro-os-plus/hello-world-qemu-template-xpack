@@ -62,7 +62,7 @@
   "devDependencies": {
     "shelljs": "^0.8.5",
     "standard": "^17.0.0",
-    "xpm": "^0.13.6"
+    "xpm": "^0.13.7"
   },
   "xpack": {
     "minimumXpmRequired": "0.13.6"
