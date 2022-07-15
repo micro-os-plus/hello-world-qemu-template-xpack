@@ -1,10 +1,19 @@
 # Hello World
 
-This is a project created with the
-[xpack/hello-world-qemu-template-xpack](https://github.com/xpack/hello-world-qemu-template-xpack) GitHub project.
+This project was created with the
+[micro-os-plus/hello-world-qemu-template-xpack](https://github.com/micro-os-plus/hello-world-qemu-template-xpack) using the following command:
 
-The project not only demonstrates the xPack Managed Builds,
-but also provides a functional starting point for real applications.
+```sh
+xpm init --template {{ package.name }}/{{ package.version }}{% for property in properties %} --property {{ property[0] }}={{ property[1]}}{% endfor %}
+xpm install
+```
+
+The project provides a functional starting point for multi-platform
+unit tests, running on QEMU via semihosting.
+
+It also demonstrates the **convenient way of managing dependencies**
+implemented by the
+[xPack Reproducible Build Framework](https://xpack.github.io).
 
 ## Build configurations
 
@@ -19,21 +28,20 @@ separate build folders.
 
 The two build folders are:
 
-- `build/debug`
-- `build/release`
+- `build/{{ platform }}-{{ buildGenerator }}-debug`
+- `build/{{ platform }}-{{ buildGenerator }}-release`
 
 ## Project structure
 
 The portable code is split into separate `src` and `include` folders.
 
-The platform specific code is in a separate folder.
+The platform specific code is in the separate `platform-{{ platform }}` folder.
 
 ## `xpm install`
 
 As usual with npm and xpm projects, to facilitate running the tests
 on Continuous Integration environments there is a way to automate
-installing the required tools,
-like build tools, defined as `devDependencies`.
+installing the required tools, like build tools, defined as `devDependencies`.
 
 This mechanism is also useful during normal development, so it is
 recommended to use the existing binary xPacks as build tools, by
@@ -62,25 +70,33 @@ The project has several actions for each build configuration:
   the project structure, and run the actual build
 - `clean`: remove all binary objects and temporary files; do not delete
   build folder
-- `execute`: run the application
+- `test`: run the application
 
-There are also some top actions, which perform the corresponding actions
-on both configurations.
+There are also several top commands:
 
-- `prepare-all`
-- `build-all`
+- `test-{{ platform }}-{{ buildGenerator }}-debug`
+- `test-{{ platform }}-{{ buildGenerator }}-release`
 - `clean-all`
-- `execute-all`
-- `test`
 
-The `test` action performs the prepare/build/execute, and can be used
-to test the project in CI environments.
+The `test-*` actions perform the prepare/build/execute actions,
+and can be used to test the project in CI environments.
 
-The full test suite can be invoked with a simple command:
+The full tests can be invoked with a simple command:
 
 ```sh
-xpm run test
+xpm run test-all
 ```
+
+## Multi-platform support
+
+By keeping the platform specific files in separate folders,
+the project can be easily extended with support for additional platforms.
+
+To achieve this:
+
+- generate separate projects for each platform
+- copy the `platform-*` folders into the project
+- copy the build configurations from `package.json`
 
 ## IntelliSense
 
@@ -97,14 +113,12 @@ An example of such a file is:
 {
   "configurations": [
     {
-      "name": "Debug",
-      "configurationProvider": "ms-vscode.cmake-tools",
-      "compileCommands": "${workspaceFolder}/build/debug/compile_commands.json"
+      "name": "{{ platform }}-{{ buildGenerator }}-debug",
+      "compileCommands": "${workspaceFolder}/build/{{ platform }}-{{ buildGenerator }}-debug/compile_commands.json"
     },
     {
-      "name": "Release",
-      "configurationProvider": "ms-vscode.cmake-tools",
-      "compileCommands": "${workspaceFolder}/build/release/compile_commands.json"
+      "name": "{{ platform }}-{{ buildGenerator }}-release",
+      "compileCommands": "${workspaceFolder}/build/{{ platform }}-{{ buildGenerator }}-release/compile_commands.json"
     }
   ],
   "version": 4
@@ -116,37 +130,7 @@ the user should not be very concerned with it.
 
 However, only modern tools (like CMake and meson) can generate this file.
 
-If the project uses other tools, like autotools & make, the
+If the project uses other tools, the
 `c_cpp_properties.json` file must be edited and specific details (like
-the include folders an preprocessor definitions) must be provided
+the include folders and preprocessor definitions) must be provided
 for each build configuration.
-
-An example of such a file is:
-
-```json
-{
-  "configurations": [
-    {
-      "name": "Debug",
-      "configurationProvider": "ms-vscode.makefile-tools",
-      "includePath": [
-        "${workspaceFolder}/include"
-      ],
-      "defines": [
-        "DEBUG"
-      ]
-    },
-    {
-      "name": "Release",
-      "configurationProvider": "ms-vscode.makefile-tools",
-      "includePath": [
-        "${workspaceFolder}/include"
-      ],
-      "defines": [
-        "NDEBUG"
-      ]
-    }
-  ],
-  "version": 4
-}
-```
