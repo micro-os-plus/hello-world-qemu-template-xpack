@@ -12,22 +12,6 @@
 
 // ----------------------------------------------------------------------------
 
-#include <iostream>
-
-// Print a greeting message on standard output and exit.
-
-int
-main(int argc, char* argv[])
-{
-  std::cout << "Hello " << (argc > 1 ? argv[1] : "Arm") << " World!" << std::endl;
-
-#if defined(MICRO_OS_PLUS_DEBUG)
-  puts ("(in debug mode)");
-#else
-  puts ("(in release mode)");
-#endif
-
-  return 0;
-}
+// ...
 
 // ----------------------------------------------------------------------------
