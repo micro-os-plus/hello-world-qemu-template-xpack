@@ -21,7 +21,7 @@ message('Including platform-qemu-cortex-m7f globals...')
 # -----------------------------------------------------------------------------
 
 # Required in devices-qemu-cortexm.
-xpack_device_compile_definition='DEVICE_QEMU_CORTEX_M4'
+xpack_device_compile_definition='DEVICE_QEMU_CORTEX_M7'
 
 # -----------------------------------------------------------------------------
 
