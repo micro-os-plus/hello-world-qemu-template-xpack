@@ -3,8 +3,8 @@
 This project provides a **functional starting point** for multi-platform
 unit tests, running on QEMU via **semihosting**.
 
-It also demonstrates the **convenient way of managing dependencies**
-implemented by the
+It also demonstrates a **convenient way of managing dependencies**,
+as implemented by the
 [xPack Reproducible Build Framework](https://xpack.github.io).
 
 ## `xpm init`
@@ -41,12 +41,12 @@ xpm install
 
 ## Build configurations
 
-The project borrows the structure from **Eclipse CDT** projects,
+The project inherits the structure from **Eclipse CDT** projects,
 which have two configurations, **Debug** and **Release**.
 
 ## Out of source tree builds
 
-Having multiple build configurations, each with its own build folder,
+Having multiple build configurations,
 the builds inherently cannot run in the source tree and require
 separate build folders.
 
@@ -60,7 +60,7 @@ The two build folders are:
 The portable code is split into separate `src` and `include` folders.
 
 The platform specific code is in the separate `platform-{{ platform }}` folder
-and in the dependencies automatically linked below the `xpacks` folder.
+and in some of the dependencies automatically linked below the `xpacks` folder.
 
 ## Actions
 
@@ -101,9 +101,10 @@ To achieve this:
 
 ## IntelliSense
 
-The project is **Visual Studio Code** friendly, and, when using the
-**VS Code xPack Managed Build Tools** extension,
-the `.vscode/c_cpp_properties.json` file is created and updated automatically.
+The project is **Visual Studio Code** friendly, and, when using the VS Code
+[xPack C/C++ Managed Build Tools](https://marketplace.visualstudio.com/items?itemName=ilg-vscode.xpack)
+extension, the `.vscode/c_cpp_properties.json` file is created and
+updated automatically.
 
 The best way to configure IntelliSense is to use `compile_commands.json`
 files in each build folder, since this fully automates the process.
