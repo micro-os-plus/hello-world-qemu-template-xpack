@@ -15,7 +15,9 @@ on:
       - '.gitignore'
       - '.npmignore'
       - '.github/workflows/test-all.yml'
+      - '.github/FUNDING.yml'
       - 'tests/scripts/**'
+      - 'README*'
     # tags-ignore: # Does not work, nothing triggers.
     #   - '**'
     # This should disable running the workflow on tags, according to the
