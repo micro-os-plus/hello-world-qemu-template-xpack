@@ -2,11 +2,12 @@
 # https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
 # https://github.com/actions
 
-# https://github.com/micro-os-plus/utils-lists-xpack/actions/workflows/CI.yml
+# https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/CI.yml
 name: CI on Push
 
 on:
   push:
+    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onpushpull_requestpull_request_targetpathspaths-ignore
     paths-ignore:
       - '.vscode/**'
       - 'LICENSE'
@@ -17,7 +18,9 @@ on:
       - '.github/workflows/test-all.yml'
       - '.github/FUNDING.yml'
       - 'tests/scripts/**'
-      - 'README*'
+      - 'README.md'
+      - 'README-MAINTAINER.md'
+      - 'README-DEVELOPER.md'
     # tags-ignore: # Does not work, nothing triggers.
     #   - '**'
     # This should disable running the workflow on tags, according to the
