@@ -21,8 +21,8 @@ that prints the _Hello World_ message on standard output.
 Both C and C++ are supported, with **CMake** and **meson** as build system
 generators.
 
-The `hello-world-qemu-template` project is part of the
-[µOS++](https://github.com/micro-os-plus/).
+`hello-world-qemu-template` is part of the
+[µOS++](https://github.com/micro-os-plus/) project.
 
 It can be invoked in a terminal, but the main intended use was
 to be integrated into the **VS Code xPack Build extension**, to
