@@ -25,8 +25,8 @@ generators.
 [µOS++](https://github.com/micro-os-plus/) project.
 
 It can be invoked in a terminal, but the main intended use was
-to be integrated into the **VS Code xPack Build extension**, to
-generate new projects.
+to be integrated into the **VS Code xPack Build** extension and
+**Eclipse Embedded CDT**, to generate new projects.
 
 ## Prerequisites
 
