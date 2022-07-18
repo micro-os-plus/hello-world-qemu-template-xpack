@@ -200,9 +200,8 @@ This is done by issuing the `xpm install` command in the project folder:
 
 ### Build and test
 
-The generated project includes dependencies to all build tools, except
-the toolchain, which must be available in a system location, such that
-the build system generator can find it.
+The generated project includes dependencies to all build tools,
+including the toolchain, and running the tests can be done immediately.
 
 ```console
 % cd my-project
