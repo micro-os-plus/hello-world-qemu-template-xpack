@@ -16,7 +16,7 @@
 # add_global_*() functions.
 # Must be added with subdir() before creating any library or executable.
 
-message('Including platform-qemu-aarch32 globals...')
+message('Including platform-qemu-cortex-a15 globals...')
 
 # -----------------------------------------------------------------------------
 
@@ -43,9 +43,7 @@ xpack_platform_common_args += [
   # https://gcc.gnu.org/onlinedocs/gcc-11.3.0/gcc/ARM-Options.html#ARM-Options
   '-mcpu=cortex-a15',
 
-  # '-flto' # fails with undefined __assert_func, _write, etc.
-
-  '-fno-move-loop-invariants',
+  # '-fno-move-loop-invariants',
 
   # Embedded builds must be warning free.
   '-Werror',
@@ -55,12 +53,16 @@ if get_option('buildtype').contains('debug')
   xpack_platform_common_args += [
     '-fno-omit-frame-pointer'
   ]
+else
+  xpack_platform_common_args += [
+    # '-flto'
+  ]
 endif
 
 xpack_platform_common_cpp_args += [
   # '-fno-exceptions',
   # '-fno-rtti',
-  '-fno-use-cxa-atexit',
+  # '-fno-use-cxa-atexit',
   '-fno-threadsafe-statics',
 ]
 
@@ -91,23 +93,5 @@ add_global_link_arguments(
 
   language: [ 'cpp' ]
 )
-
-# The base folder is root, via the `top` link.
-xpack_dependencies = [
-  'xpacks/micro-os-plus-diag-trace', # -
-
-  # -
-  # 'xpacks/micro-os-plus-version',
-  # -
-  # 'xpack-3rd-party-arm-cmsis-core',
-  # (architecture) -
-  'xpacks/micro-os-plus-architecture-aarch32',
-
-  # +(diag_trace, architecture) >semihosting
-  'xpacks/micro-os-plus-semihosting',
-
-  # +(arm_cmsis_core_m, devices_aarch32, startup) >devices_qemu_aarch32
-  'xpacks/micro-os-plus-devices-qemu-aarch32',
-]
 
 # -----------------------------------------------------------------------------

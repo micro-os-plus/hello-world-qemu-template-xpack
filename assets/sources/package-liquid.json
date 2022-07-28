@@ -37,9 +37,11 @@
 {% if target == "cortex-m0" -%}
     "@micro-os-plus/architecture-cortexm": "^6.1.0",
     "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+    "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
 {% elsif target == "cortex-m7f" -%}
     "@micro-os-plus/architecture-cortexm": "^6.1.0",
     "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+    "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
 {% elsif target == "cortex-a15" -%}
     "@micro-os-plus/architecture-aarch32": "^3.0.0",
     "@micro-os-plus/devices-qemu-aarch32": "^3.0.1",
@@ -56,7 +58,7 @@
     "@micro-os-plus/build-helper": "^2.10.1",
     "@micro-os-plus/diag-trace": "^4.0.0",
     "@micro-os-plus/semihosting": "^5.0.0",
-    "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6"
+    "@micro-os-plus/startup": "^4.0.0"
   },
   "devDependencies": {
 {% if buildGenerator == "cmake" -%}
@@ -83,7 +85,7 @@
 {% endif -%}
   },
   "xpack": {
-    "minimumXpmRequired": "0.13.6",
+    "minimumXpmRequired": "0.13.7",
     "properties": {
       {% raw %}"buildFolderRelativePath": "{{ 'build' | path_join: configuration.name | to_filename | downcase }}",
       "buildFolderRelativePathPosix": "{{ 'build' | path_posix_join: configuration.name | downcase }}",{% endraw %}
@@ -127,17 +129,23 @@
       ],
       "link-deps": [
 {% if target == "cortex-m0" -%}
+        "xpm link @xpack-3rd-party/arm-cmsis-core --quiet",
         "xpm link @micro-os-plus/architecture-cortexm --quiet",
         "xpm link @micro-os-plus/devices-qemu-cortexm --quiet",
+        "xpm link @micro-os-plus/startup --quiet",
 {% elsif target == "cortex-m7f" -%}
+        "xpm link @xpack-3rd-party/arm-cmsis-core --quiet",
         "xpm link @micro-os-plus/architecture-cortexm --quiet",
         "xpm link @micro-os-plus/devices-qemu-cortexm --quiet",
+        "xpm link @micro-os-plus/startup --quiet",
 {% elsif target == "cortex-a15" -%}
         "xpm link @micro-os-plus/architecture-aarch32 --quiet",
         "xpm link @micro-os-plus/devices-qemu-aarch32 --quiet",
+        "xpm link @micro-os-plus/startup --quiet",
 {% elsif target == "cortex-a72" -%}
         "xpm link @micro-os-plus/architecture-aarch64 --quiet",
         "xpm link @micro-os-plus/devices-qemu-aarch64 --quiet",
+        "xpm link @micro-os-plus/startup --quiet",
 {% elsif target == "riscv-rv32imac" -%}
         "xpm link @micro-os-plus/architecture-riscv --quiet",
         "xpm link @micro-os-plus/devices-qemu-riscv --quiet",
@@ -149,8 +157,7 @@
 {% endif -%}
         "xpm link @micro-os-plus/build-helper --quiet",
         "xpm link @micro-os-plus/diag-trace --quiet",
-        "xpm link @micro-os-plus/semihosting --quiet",
-        "xpm link @xpack-3rd-party/arm-cmsis-core --quiet"
+        "xpm link @micro-os-plus/semihosting --quiet"
       ]
     },
 {% if buildGenerator == "cmake" -%}
@@ -159,7 +166,13 @@
         "properties": {
           "buildType": "Debug",
           "platformName": "{{ platform }}",
-{% if target == "cortex-a72" -%}
+{% if target == "cortex-m0" -%}
+          "toolchainFileName": "arm-none-eabi-gcc.cmake"
+{% elsif target == "cortex-m7f" -%}
+          "toolchainFileName": "arm-none-eabi-gcc.cmake"
+{% elsif target == "cortex-a15" -%}
+          "toolchainFileName": "arm-none-eabi-gcc.cmake"
+{% elsif target == "cortex-a72" -%}
           "toolchainFileName": "aarch64-none-elf-gcc.cmake"
 {% elsif target == "riscv-rv32imac" -%}
           "toolchainFileName": "riscv-none-elf-gcc.cmake"
@@ -192,7 +205,13 @@
         "properties": {
           "buildType": "debug",
           "platformName": "{{ platform }}",
-    {% if target == "cortex-a72" -%}
+{% if target == "cortex-m0" -%}
+          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
+{% elsif target == "cortex-m7f" -%}
+          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
+{% elsif target == "cortex-a15" -%}
+          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
+{% elsif target == "cortex-a72" -%}
           {% raw %}"toolchainFileName": "aarch64-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
 {% elsif target == "riscv-rv32imac" -%}
           {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}

@@ -103,8 +103,8 @@ foreach name : test_names
   # xpack_cpp_args += micro_os_plus_utils_lists_dependency_cpp_args
 
   xpack_link_args += [
-    # '-nostartfiles',
-    '--specs=rdimon.specs', '-Wl,--start-group', '-lgcc', '-lc', '-lc', '-lm', '-lrdimon', '-Wl,--end-group',
+    '-nostartfiles',
+    # '--specs=rdimon.specs', '-Wl,--start-group', '-lgcc', '-lc', '-lc', '-lm', '-lrdimon', '-Wl,--end-group',
 
     # Ensure the linker will keep the interrupt vectors which otherwise
     # are not referred from anywhere.
@@ -139,6 +139,7 @@ foreach name : test_names
     platform_qemu_cortex_m0_dependency, # bring device & architecture too
 
     micro_os_plus_semihosting_dependency,
+    micro_os_plus_startup_dependency,
   ]
 
   xpack_link_with += [

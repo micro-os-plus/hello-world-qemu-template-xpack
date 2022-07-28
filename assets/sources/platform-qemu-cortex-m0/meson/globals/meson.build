@@ -42,9 +42,7 @@ xpack_platform_common_args += [
   '-mthumb',
   '-mfloat-abi=soft',
 
-  # '-flto' # fails with undefined __assert_func, _write, etc.
-
-  '-fno-move-loop-invariants',
+  # '-fno-move-loop-invariants',
 
   # Embedded builds must be warning free.
   '-Werror',
@@ -54,12 +52,17 @@ if get_option('buildtype').contains('debug')
   xpack_platform_common_args += [
     '-fno-omit-frame-pointer'
   ]
+else
+  xpack_platform_common_args += [
+    # -flto fails to run on QEMU.
+    # '-flto'
+  ]
 endif
 
 xpack_platform_common_cpp_args += [
   # '-fno-exceptions',
   # '-fno-rtti',
-  '-fno-use-cxa-atexit',
+  # '-fno-use-cxa-atexit',
   '-fno-threadsafe-statics',
 ]
 

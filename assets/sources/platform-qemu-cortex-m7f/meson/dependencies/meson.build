@@ -25,8 +25,9 @@ xpack_dependencies = [
 
   # +(diag_trace, architecture) >semihosting
   'xpacks/micro-os-plus-semihosting',
-  # +(semihosting) >devices_cortexm
-  # 'xpacks/micro-os-plus-devices-cortexm',
+
+  # -
+  'xpacks/micro-os-plus-startup',
 
   # +(arm_cmsis_core_m, devices_cortexm, startup) >devices_qemu_cortexm
   'xpacks/micro-os-plus-devices-qemu-cortexm',

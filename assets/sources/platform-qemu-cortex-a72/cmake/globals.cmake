@@ -15,7 +15,7 @@
 # This file defines the global compiler settings that apply to all targets.
 # Must be included with include() in the `tests` scope.
 
-message(VERBOSE "Including platform-qemu-aarch64 globals...")
+message(VERBOSE "Including platform-qemu-cortex-a72 globals...")
 
 # -----------------------------------------------------------------------------
 
@@ -32,14 +32,13 @@ set(xpack_platform_common_args
   -mcpu=cortex-a72
   -mabi=lp64
 
-  -fno-move-loop-invariants
+  # -fno-move-loop-invariants
 
   # Embedded builds must be warning free.
   -Werror
 
-  # -flto fails with undefined reference to `__assert_func'...
-  # $<$<CONFIG:Release>:-flto>
-  # $<$<CONFIG:MinSizeRel>:-flto>
+  $<$<CONFIG:Release>:-flto>
+  $<$<CONFIG:MinSizeRel>:-flto>
 
   $<$<CONFIG:Debug>:-fno-omit-frame-pointer>
 
@@ -51,7 +50,7 @@ set(xpack_platform_common_args
   # https://cmake.org/cmake/help/v3.20/manual/cmake-generator-expressions.7.html?highlight=compile_language#genex:COMPILE_LANGUAGE
   # $<$<COMPILE_LANGUAGE:CXX>:-fno-exceptions>
   # $<$<COMPILE_LANGUAGE:CXX>:-fno-rtti>
-  $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
+  # $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
   $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
 )
 

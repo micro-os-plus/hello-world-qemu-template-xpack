@@ -1,4 +1,4 @@
-# platform-qemu-aarch64
+# platform-qemu-cortex-a72
 
 Support files for building application to run on the QEMU "virt"
 emulated board with "cortex-a72" CPU.

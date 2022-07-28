@@ -28,6 +28,9 @@ xpack_dependencies = [
   # +(diag_trace, architecture) >semihosting
   'xpacks/micro-os-plus-semihosting',
 
+  # -
+  'xpacks/micro-os-plus-startup',
+
   # +(arm_cmsis_core_m, devices_aarch64, startup) >devices_qemu_aarch64
   'xpacks/micro-os-plus-devices-qemu-aarch64',
 ]

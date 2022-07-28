@@ -1,4 +1,4 @@
-# platform-qemu-aarch32
+# platform-qemu-cortex-a15
 
 Support files for building application to run on the QEMU "virt"
 emulated board with "cortex-a15" CPU.
