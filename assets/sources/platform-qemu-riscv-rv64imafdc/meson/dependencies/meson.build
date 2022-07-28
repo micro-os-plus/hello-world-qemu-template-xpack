@@ -12,6 +12,26 @@
 #
 # -----------------------------------------------------------------------------
 
-option('platform-name', type : 'string', value : '', description : '[native, qemu-cortex-m*, qemu-cortex-a*, riscv-rv*]' )
+# This file adds the platform dependencies.
+
+# The base folder is root, via the `top` link.
+xpack_dependencies = [
+  'xpacks/micro-os-plus-diag-trace', # -
+
+  # -
+  # 'xpacks/micro-os-plus-version',
+  # -
+  # (architecture) -
+  'xpacks/micro-os-plus-architecture-riscv',
+
+  # +(diag_trace, architecture) >semihosting
+  'xpacks/micro-os-plus-semihosting',
+
+  # ...
+  'xpacks/micro-os-plus-startup',
+
+  # ...
+  'xpacks/micro-os-plus-devices-qemu-riscv',
+]
 
 # -----------------------------------------------------------------------------

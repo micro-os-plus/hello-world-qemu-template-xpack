@@ -46,6 +46,12 @@
 {% elsif target == "cortex-a72" -%}
     "@micro-os-plus/architecture-aarch64": "^3.0.0",
     "@micro-os-plus/devices-qemu-aarch64": "^3.0.0",
+{% elsif target == "riscv-rv32imac" -%}
+    {% comment %}"@micro-os-plus/architecture-riscv": "^3.0.0",{% endcomment %}
+    {% comment %}"@micro-os-plus/devices-qemu-riscv": "^1.0.0",{% endcomment %}
+{% elsif target == "riscv-rv64imafdc" -%}
+    {% comment %}"@micro-os-plus/architecture-riscv": "^3.0.0",{% endcomment %}
+    {% comment %}"@micro-os-plus/devices-qemu-riscv": "^1.0.0",{% endcomment %}
 {% endif -%}
     "@micro-os-plus/build-helper": "^2.10.1",
     "@micro-os-plus/diag-trace": "^4.0.0",
@@ -61,10 +67,20 @@
     "@xpack-dev-tools/ninja-build": "1.10.2-5.1",
 {% if target == "cortex-a72" -%}
     "@xpack-dev-tools/aarch64-none-elf-gcc": "11.2.1-1.2.2",
+{% elsif target == "riscv-rv32imac" -%}
+    "@xpack-dev-tools/riscv-none-elf-gcc": "12.1.0-2.1",
+{% elsif target == "riscv-rv64imafdc" -%}
+    "@xpack-dev-tools/riscv-none-elf-gcc": "12.1.0-2.1",
 {% else -%}
     "@xpack-dev-tools/arm-none-eabi-gcc": "11.2.1-1.2.2",
 {% endif -%}
+{% if target == "riscv-rv32imac" -%}
+    "@xpack-dev-tools/qemu-riscv": "7.0.0-1.1"
+{% elsif target == "riscv-rv64imafdc" -%}
+    "@xpack-dev-tools/qemu-riscv": "7.0.0-1.1"
+{% else -%}
     "@xpack-dev-tools/qemu-arm": "7.0.0-1.1"
+{% endif -%}
   },
   "xpack": {
     "minimumXpmRequired": "0.13.6",
@@ -122,6 +138,14 @@
 {% elsif target == "cortex-a72" -%}
         "xpm link @micro-os-plus/architecture-aarch64 --quiet",
         "xpm link @micro-os-plus/devices-qemu-aarch64 --quiet",
+{% elsif target == "riscv-rv32imac" -%}
+        "xpm link @micro-os-plus/architecture-riscv --quiet",
+        "xpm link @micro-os-plus/devices-qemu-riscv --quiet",
+        "xpm link @micro-os-plus/startup --quiet",
+{% elsif target == "riscv-rv64imafdc" -%}
+        "xpm link @micro-os-plus/architecture-riscv --quiet",
+        "xpm link @micro-os-plus/devices-qemu-riscv --quiet",
+        "xpm link @micro-os-plus/startup --quiet",
 {% endif -%}
         "xpm link @micro-os-plus/build-helper --quiet",
         "xpm link @micro-os-plus/diag-trace --quiet",
@@ -137,8 +161,10 @@
           "platformName": "{{ platform }}",
 {% if target == "cortex-a72" -%}
           "toolchainFileName": "aarch64-none-elf-gcc.cmake"
-{% else -%}
-          "toolchainFileName": "arm-none-eabi-gcc.cmake"
+{% elsif target == "riscv-rv32imac" -%}
+          "toolchainFileName": "riscv-none-elf-gcc.cmake"
+{% elsif target == "riscv-rv64imafdc" -%}
+          "toolchainFileName": "riscv-none-elf-gcc.cmake"
 {% endif -%}
         },
         "actions": {
@@ -168,9 +194,11 @@
           "platformName": "{{ platform }}",
     {% if target == "cortex-a72" -%}
           {% raw %}"toolchainFileName": "aarch64-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
-    {% else -%}
-          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
-    {% endif -%}
+{% elsif target == "riscv-rv32imac" -%}
+          {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
+{% elsif target == "riscv-rv64imafdc" -%}
+          {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
+{% endif -%}
         },
         "actions": {
           {% raw %}"prepare": "{{ properties.commandMesonPrepareCross }}",
