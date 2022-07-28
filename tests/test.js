@@ -99,13 +99,69 @@ class Test {
           }
         }
       }
+    } else if (complexity === 'cortexm') {
+      shx.echo('Testing Cortex-M cases...')
+      for (const target of ['cortex-m0', 'cortex-m7f']) {
+        for (const buildGenerator of
+          Object.keys(properties.buildGenerator.items)) {
+          for (const language of Object.keys(properties.language.items)) {
+            exitCode = this.runOne({
+              target,
+              buildGenerator,
+              language
+            })
+            if (exitCode !== 0) {
+              return exitCode
+            }
+            this.count++
+          }
+        }
+      }
+    } else if (complexity === 'cortexa') {
+      shx.echo('Testing Cortex-A cases...')
+      for (const target of ['cortex-a15', 'cortex-a72']) {
+        for (const buildGenerator of
+          Object.keys(properties.buildGenerator.items)) {
+          for (const language of Object.keys(properties.language.items)) {
+            exitCode = this.runOne({
+              target,
+              buildGenerator,
+              language
+            })
+            if (exitCode !== 0) {
+              return exitCode
+            }
+            this.count++
+          }
+        }
+      }
+    } else if (complexity === 'riscv') {
+      shx.echo('Testing RISC-V cases...')
+      for (const target of ['riscv-rv32imac', 'riscv-rv64imafdc']) {
+        for (const buildGenerator of
+          Object.keys(properties.buildGenerator.items)) {
+          for (const language of Object.keys(properties.language.items)) {
+            exitCode = this.runOne({
+              target,
+              buildGenerator,
+              language
+            })
+            if (exitCode !== 0) {
+              return exitCode
+            }
+            this.count++
+          }
+        }
+      }
     } else if (complexity === 'develop') {
       shx.echo('Testing one development cases...')
       exitCode = this.runOne({
         // target: 'cortex-m0',
-        // target: 'cortex-m7f',
-        target: 'cortex-a15',
+        target: 'cortex-m7f',
+        // target: 'cortex-a15',
         // target: 'cortex-a72',
+        // target: 'riscv-rv32imac',
+        // target: 'riscv-rv64imafdc',
         buildGenerator: 'cmake',
         // buildGenerator: 'meson',
         language: 'cpp'
