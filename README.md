@@ -6,27 +6,39 @@
 # A source xPack with a template to generate semihosted Hello World projects running on QEMU
 
 Generate simple bare-metal _Hello World_
-projects that run on QEMU.
+projects that run on QEMU (Arm **Cortex-M**, **Cortex-A** and
+**RISC-V 32/64** devices).
 
 The project is hosted on GitHub as
 [micro-os-plus/hello-world-qemu-template-xpack](https://github.com/micro-os-plus/hello-world-qemu-template-xpack),
 and is also available from npmjs.com as
 [@micro-os-plus/hello-world-qemu-template](https://www.npmjs.com/package/@micro-os-plus/hello-world-qemu-template).
+As the name implies, is part of the
+[µOS++](https://github.com/micro-os-plus/) project.
 
 ## Features
 
 This project generates multiple variants of the classical application
 that prints the _Hello World_ message on standard output.
 
-Both C and C++ are supported, with **CMake** and **meson** as build system
-generators.
+Both **C** and **C++** are supported, with **CMake** and **meson**
+as build system generators.
 
-`hello-world-qemu-template` is part of the
-[µOS++](https://github.com/micro-os-plus/) project.
+The targeted devices are:
 
-It can be invoked in a terminal, but the main intended use was
-to be integrated into the **VS Code xPack Build** extension and
-**Eclipse Embedded CDT**, to generate new projects.
+- Arm **Cortex-M0** (ARMv6-M)
+- Arm **Cortex-M7F** (ARMv7-M FP)
+- Arm **Cortex-A15** (AArch32)
+- Arm **Cortex-A72** (AArch72 FP)
+- RISC-V **RV32IMAC** (32-bit)
+- RISC-V **RV64IMAFDC** (64-bit FP)
+
+The template can be instantiated in a terminal, but the intended use was
+to be integrated into the
+[VS Code xPack Build](https://marketplace.visualstudio.com/items?itemName=ilg-vscode.xpack)
+extension and
+[Eclipse Embedded CDT](https://eclipse-embed-cdt.github.io),
+to generate new projects.
 
 ## Prerequisites
 
@@ -54,14 +66,11 @@ pointing to this xPack.
 This command must be invoked in an empty folder, where the project
 will be generated.
 
-There are two modes, interactive and non interactive (from a script).
+There are two modes, **interactive** and **scriptable** (non interactive).
 
 #### Interactive mode
 
-Starting the tool without any command line options will select the
-interactive mode and the user can manually enter each choice.
-
-Starting the tool without defining the programming language will select the
+Starting the tool without defining the target will select the
 interactive mode and the user can manually enter each choice.
 
 ```console
@@ -94,7 +103,7 @@ File 'package.json' generated.
 
 When used in non-interactive environments, it is possible to pass
 all required data on the
-command line. The only mandatory property is `language`, all other
+command line. The only mandatory property is `target`, all other
 have defaults.
 
 ```console
@@ -124,10 +133,11 @@ File 'package.json' generated.
 
 ### Satisfy dependencies
 
-The next step is to install all packages required, either source packages or
+The next step is to install all dependencies, either source packages or
 binary tools.
 
-This is done by issuing the `xpm install` command in the project folder:
+This can be automated by issuing the `xpm install` command in the
+project folder:
 
 ```console
 % cd my-project
@@ -499,15 +509,19 @@ Total Test time (real) =   0.04 sec
 %
 ```
 
-### Toolchain
+### Toolchains
 
 The generated projects use the **xPack GNU Compiler Collection** toolchains.
 
+### Windows specifics
+
+On Windows, the VS Code IntelliSense logic does not properly identify
+the toolchain when installed via npm/xpm ([#28](https://github.com/micro-os-plus/vscode-xpack-extension-ts/issues/28)); thus the need for CMake and meson
+to use the explicit program extensions (like `arm-none-eabi-gcc.cmd`).
+
 ## Known problems
 
-- On Windows, the VS Code IntelliSense logic does not properly identify
-  the toolchain when installed via npm/xpm ([#28](https://github.com/micro-os-plus/vscode-xpack-extension-ts/issues/28)); the workaround is to make the
-  invocations use explicit program extensions like `gcc.cmd`.
+- none
 
 ## Maintainer & developer info
 
