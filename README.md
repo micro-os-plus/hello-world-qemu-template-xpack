@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/hello-world-qemu-template-xpack)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/blob/micro-os-plus/LICENSE)
 [![CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/CI.yml/badge.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/CI.yml)
 
-# A source xPack with a template to generate semihosted Hello World projects running on QEMU
+# A template to generate semihosted Hello World projects running on QEMU
 
 Generate simple bare-metal _Hello World_
 projects that run on QEMU (Arm **Cortex-M**, **Cortex-A** and
