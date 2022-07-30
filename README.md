@@ -29,7 +29,7 @@ The targeted devices are:
 - Arm **Cortex-M0** (ARMv6-M)
 - Arm **Cortex-M7F** (ARMv7-M FP)
 - Arm **Cortex-A15** (AArch32)
-- Arm **Cortex-A72** (AArch72 FP)
+- Arm **Cortex-A72** (AArch64 FP)
 - RISC-V **RV32IMAC** (32-bit)
 - RISC-V **RV64IMAFDC** (64-bit FP)
 
