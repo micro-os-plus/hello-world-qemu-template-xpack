@@ -6,7 +6,7 @@
 # A template to generate semihosted Hello World projects running on QEMU
 
 Generate simple bare-metal _Hello World_
-projects that run on QEMU (Arm **Cortex-M**, **Cortex-A** and
+projects that run on QEMU (**Arm Cortex-M**, **Arm Cortex-A 32/64** and
 **RISC-V 32/64** devices).
 
 The project is hosted on GitHub as
