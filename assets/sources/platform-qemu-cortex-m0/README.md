@@ -27,6 +27,7 @@ The source files to be added to user projects are:
 
 The applications are built for the following memory range:
 
+- FLASH: 0x0000_0000-0x007F_FFFF (8 MB)
 - RAM: 0x2000_0000-0x207F_FFFF (8 MB)
 - HEAP: 0x2100_0000-0x21FF_FFFF (16 MB)
 - stack: 0x2200_0000
