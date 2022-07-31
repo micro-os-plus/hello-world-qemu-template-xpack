@@ -3,6 +3,7 @@
     80
   ],
   "cSpell.ignoreWords": [
+    "HEAPINFO",
     "Ionescu",
     "Liviu",
     "STREQUAL",
@@ -24,14 +25,17 @@
     "imafdc",
     "ival",
     "liquidjs",
+    "mcpu",
     "minsize",
     "mkdir",
+    "nographic",
     "npmignore",
     "npmjs",
     "postversion",
     "riscv",
     "semihosted",
     "semihosting",
+    "unimp",
     "virt",
     "xpack",
     "xpacks"
