@@ -120,6 +120,7 @@ foreach name : test_names
 
     '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-devices-qemu-cortexm/linker-scripts/mem-mps2-an385.ld',
     '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections-flash.ld',
+    # '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections-ram.ld',
   ]
 
   if name == 'hello-world'
@@ -132,6 +133,7 @@ foreach name : test_names
   xpack_dependencies += [
     # Portable dependencies.
     micro_os_plus_diag_trace_dependency,
+    # micro_os_plus_micro_test_plus_dependency,
   ]
 
   xpack_dependencies += [

@@ -114,6 +114,7 @@ function(add_test_executable name)
     # Use absolute paths, otherwise set -L.
     -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-devices-qemu-cortexm/linker-scripts/mem-mps2-an500.ld
     -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections-flash.ld
+    # -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections-ram.ld
   )
 
   target_link_libraries(${name}  PRIVATE
@@ -122,6 +123,7 @@ function(add_test_executable name)
 
     # Portable dependencies.
     micro-os-plus::diag-trace
+    # micro-os-plus::micro-test-plus
 
     # Platform specific dependencies.
     micro-os-plus::platform # bring device & architecture too

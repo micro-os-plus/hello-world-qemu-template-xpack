@@ -55,6 +55,7 @@ if get_option('buildtype').contains('debug')
   ]
 else
   xpack_platform_common_args += [
+    # -flto fails with undefined reference to `_write', `_fstat`...
     # '-flto'
   ]
 endif
