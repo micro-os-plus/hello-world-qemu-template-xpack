@@ -55,10 +55,10 @@
     "@micro-os-plus/architecture-riscv": "^4.1.0",
     "@micro-os-plus/devices-qemu-riscv": "^1.0.0",
 {% endif -%}
-    "@micro-os-plus/build-helper": "^2.10.1",
+    "@micro-os-plus/build-helper": "^2.11.0",
     "@micro-os-plus/diag-trace": "^4.1.1",
     "@micro-os-plus/semihosting": "^7.1.0",
-    "@micro-os-plus/startup": "^5.1.0"
+    "@micro-os-plus/startup": "^5.2.0"
   },
   "devDependencies": {
 {% if buildGenerator == "cmake" -%}
