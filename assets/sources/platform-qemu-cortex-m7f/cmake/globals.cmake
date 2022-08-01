@@ -57,7 +57,8 @@ set(xpack_platform_common_args
 )
 
 add_compile_definitions(
-  # ...
+  # Full POSIX conformance:
+  # https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap02.html#tag_02_01_03
   _POSIX_C_SOURCE=200809L
 )
 

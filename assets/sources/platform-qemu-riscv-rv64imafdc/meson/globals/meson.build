@@ -20,7 +20,7 @@ message('Including platform-qemu-riscv-rv64imafdc globals...')
 
 # -----------------------------------------------------------------------------
 
-# Required in devices-qemu-riscv-rv64imafdc.
+# Required in devices-qemu-riscv.
 xpack_device_compile_definition='DEVICE_QEMU_RISCV_RV64IMAFDC'
 
 # -----------------------------------------------------------------------------

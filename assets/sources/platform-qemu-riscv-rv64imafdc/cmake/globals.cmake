@@ -19,7 +19,7 @@ message(VERBOSE "Including platform-qemu-riscv-rv64imafdc globals...")
 
 # -----------------------------------------------------------------------------
 
-# Required in devices-qemu-cortexm.
+# Required in devices-qemu-riscv.
 set(xpack_device_compile_definition "DEVICE_QEMU_RISCV_RV64IMAFDC")
 
 # Global definitions.
@@ -61,7 +61,8 @@ set(xpack_platform_common_args
 )
 
 add_compile_definitions(
-  # ...
+  # Full POSIX conformance:
+  # https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap02.html#tag_02_01_03
   _POSIX_C_SOURCE=200809L
 )
 

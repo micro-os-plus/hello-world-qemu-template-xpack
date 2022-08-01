@@ -34,6 +34,8 @@ xpack_platform_compile_definitions = []
 
 # Compiler definitions must passed as options.
 xpack_platform_compile_definitions += [
+  # Full POSIX conformance:
+  # https://pubs.opengroup.org/onlinepubs/9699919799/basedefs/V1_chap02.html#tag_02_01_03
   '-D_POSIX_C_SOURCE=200809L',
 ]
 

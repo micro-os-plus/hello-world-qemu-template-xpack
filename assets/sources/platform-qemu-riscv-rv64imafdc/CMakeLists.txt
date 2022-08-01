@@ -127,7 +127,7 @@ function(add_test_executable name)
     # Platform specific dependencies.
     micro-os-plus::platform # bring device & architecture too
 
-    micro-os-plus::semihosting # for the trace implementation
+    micro-os-plus::semihosting
     micro-os-plus::startup
   )
 
