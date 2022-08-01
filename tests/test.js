@@ -195,8 +195,9 @@ class Test {
     shx.echo()
     shx.echo(`Testing '${name}'...`)
 
-    const tmp = shx.tempdir()
-    const buildFolder = `${tmp}/${this.tmpFolderName}/${name}`
+    // const tmp = shx.tempdir()
+    // const buildFolder = `${tmp}/${this.tmpFolderName}/${name}`
+    const buildFolder = `build/${name}`
     shx.echo(buildFolder)
 
     shx.rm('-rf', buildFolder)
