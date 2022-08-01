@@ -45,5 +45,5 @@ qemu-system-riscv64 --machine virt -smp 1 --nographic -d unimp,guest_errors -s -
 
 ## Links
 
-- [QEMU Arm](https://www.qemu.org/docs/master/system/target-riscv.html)
+- [QEMU RISC-V](https://www.qemu.org/docs/master/system/target-riscv.html)
 - [virt](https://www.qemu.org/docs/master/system/riscv/virt.html)
