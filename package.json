@@ -19,7 +19,8 @@
     "version-minor": "npm version minor",
     "npm-audit": "npm audit fix --force",
     "postversion": "git push origin --all && git push origin --tags",
-    "git-log": "git log --pretty='%cd * %h %s' --date=short"
+    "git-log": "git log --pretty='%cd * %h %s' --date=short",
+    "clean-build": "rm -rf build"
   },
   "repository": {
     "type": "git",
