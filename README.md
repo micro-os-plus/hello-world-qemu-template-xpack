@@ -56,6 +56,9 @@ npm uninstall --global xpm
 npm install --global xpm@latest
 ```
 
+For details please follow the instructions in the
+[xPack install](https://xpack.github.io/install/) page.
+
 ## User info
 
 ### Template instantiation via `xpm init`
