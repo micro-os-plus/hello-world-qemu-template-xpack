@@ -197,7 +197,7 @@ class Test {
     shx.echo(`Testing '${name}'...`)
 
     let buildFolder
-    if (this.complexity === 'ci' && os.platform() === 'windows') {
+    if (this.complexity === 'ci' && os.platform() === 'win32') {
       // On CI the path is too long, switch to a temporary folder.
       buildFolder = `${shx.tempdir()}/${name}`
     } else {
