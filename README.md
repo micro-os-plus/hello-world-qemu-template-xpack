@@ -81,8 +81,8 @@ interactive mode and the user can manually enter each choice.
 % xpm init --template @micro-os-plus/hello-world-qemu-template@latest
 
 Checking package @micro-os-plus/hello-world-qemu-template@latest metadata...
-Installing @micro-os-plus/hello-world-qemu-template@1.1.0...
-Processing @micro-os-plus/hello-world-qemu-template@1.1.0...
+Installing @micro-os-plus/hello-world-qemu-template@1.2.0...
+Processing @micro-os-plus/hello-world-qemu-template@1.2.0...
 
 Target? (cortex-m7f, cortex-m0, cortex-a15, cortex-a72, riscv-rv32imac, riscv-rv64imafdc, ?) [cortex-m7f]:
 Programming language? (c, cpp, ?) [cpp]:
@@ -113,8 +113,8 @@ have defaults.
 % mkdir -p my-project && cd my-project
 % xpm init --template @micro-os-plus/hello-world-qemu-template@latest --property target=cortex-m7f
 
-Installing @micro-os-plus/hello-world-qemu-template@1.1.0...
-Processing @micro-os-plus/hello-world-qemu-template@1.1.0...
+Installing @micro-os-plus/hello-world-qemu-template@1.2.0...
+Processing @micro-os-plus/hello-world-qemu-template@1.2.0...
 
 Creating the C++ project 'my-project'...
 - target=cortex-m7f
@@ -240,7 +240,7 @@ including the toolchain, and running the tests can be done immediately.
 -- CMake version: 3.20.6-gc90b991
 -- Compiler: GNU 11.2.1
 -- package.name: @my-scope/my-project
--- package.version: 1.1.0
+-- package.version: 1.2.0
 -- Platform name: qemu-cortex-m7f
 -- Build type: Debug
 -- Project path: /Users/ilg/tmp/my-project
@@ -386,7 +386,7 @@ Total Test time (real) =   0.04 sec
 -- CMake version: 3.20.6-gc90b991
 -- Compiler: GNU 11.2.1
 -- package.name: @my-scope/my-project
--- package.version: 1.1.0
+-- package.version: 1.2.0
 -- Platform name: qemu-cortex-m7f
 -- Build type: Release
 -- Project path: /Users/ilg/tmp/my-project
