@@ -40,10 +40,8 @@
     "xpack",
     "xpacks"
   ],
-  "cmake.configureOnOpen": false,
   "cmake.ignoreCMakeListsMissing": true,
-  "files.associations": {
-    "*.rb": "ruby",
-    "iostream": "cpp"
-  }
+  "cmake.configureOnOpen": false,
+  "makefile.configureOnOpen": false,
+  "editor.wordWrap": "on"
 }
