@@ -73,8 +73,7 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language,
-              complexity
+              language
             })
             if (exitCode !== 0) {
               return exitCode
@@ -92,8 +91,7 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language,
-              complexity
+              language
             })
             if (exitCode !== 0) {
               return exitCode
@@ -111,8 +109,7 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language,
-              complexity
+              language
             })
             if (exitCode !== 0) {
               return exitCode
@@ -148,8 +145,7 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language,
-              complexity
+              language
             })
             if (exitCode !== 0) {
               return exitCode
@@ -169,8 +165,7 @@ class Test {
         // target: 'riscv-rv64imafdc',
         buildGenerator: 'cmake',
         // buildGenerator: 'meson',
-        language: 'cpp',
-        complexity
+        language: 'cpp'
       })
       if (exitCode !== 0) {
         return exitCode
@@ -202,7 +197,7 @@ class Test {
     shx.echo(`Testing '${name}'...`)
 
     let buildFolder
-    if (properties.complexity === 'ci' && os.platform() === 'windows') {
+    if (this.complexity === 'ci' && os.platform() === 'windows') {
       // On CI the path is too long, switch to a temporary folder.
       buildFolder = `${shx.tempdir()}/${name}`
     } else {
