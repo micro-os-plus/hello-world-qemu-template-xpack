@@ -19,6 +19,7 @@
 // ----------------------------------------------------------------------------
 
 const fs = require('fs')
+const os = require('os')
 const path = require('path')
 // const util = require('util')
 
@@ -72,7 +73,8 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
+              complexity
             })
             if (exitCode !== 0) {
               return exitCode
@@ -90,7 +92,8 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
+              complexity
             })
             if (exitCode !== 0) {
               return exitCode
@@ -108,7 +111,8 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
+              complexity
             })
             if (exitCode !== 0) {
               return exitCode
@@ -144,7 +148,8 @@ class Test {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
+              complexity
             })
             if (exitCode !== 0) {
               return exitCode
@@ -164,7 +169,8 @@ class Test {
         // target: 'riscv-rv64imafdc',
         buildGenerator: 'cmake',
         // buildGenerator: 'meson',
-        language: 'cpp'
+        language: 'cpp',
+        complexity
       })
       if (exitCode !== 0) {
         return exitCode
@@ -195,9 +201,13 @@ class Test {
     shx.echo()
     shx.echo(`Testing '${name}'...`)
 
-    // const tmp = shx.tempdir()
-    // const buildFolder = `${tmp}/${this.tmpFolderName}/${name}`
-    const buildFolder = `build/${name}`
+    let buildFolder
+    if (properties.complexity === 'ci' && os.platform() === 'windows') {
+      // On CI the path is too long, switch to a temporary folder.
+      buildFolder = `${shx.tempdir()}/${name}`
+    } else {
+      buildFolder = `build/${name}`
+    }
     shx.echo(buildFolder)
 
     shx.rm('-rf', buildFolder)
