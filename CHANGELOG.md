@@ -6,6 +6,12 @@ Please check
 [GitHub](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues/)
 and close existing issues and pull requests.
 
+## 2022-08-04
+
+* v1.3.0
+* b9ca0b7 .vscode/settings.json: npm.exclude build
+* 419cd20 bump semihosting
+
 ## 2022-08-03
 
 * v1.2.0
