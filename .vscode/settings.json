@@ -45,6 +45,7 @@
   "makefile.configureOnOpen": false,
   "editor.wordWrap": "on",
   "npm.exclude": [
-    "**/build/**"
+    "**/build/**",
+    "**/xpacks/**"
   ]
 }
