@@ -33,64 +33,67 @@
 {% endif -%}
   "license": "MIT",
   "config": {},
-  "dependencies": {
+  "dependencies": {},
+  "bundledDependencies": {},
+  "devDependencies": {},
+  "xpack": {
+    "minimumXpmRequired": "0.14.0",
+    "dependencies": {
 {% if target == "cortex-m0" -%}
-    "@micro-os-plus/architecture-cortexm": "^6.2.0",
-    "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
-    "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
+      "@micro-os-plus/architecture-cortexm": "^6.2.0",
+      "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+      "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
 {% elsif target == "cortex-m7f" -%}
-    "@micro-os-plus/architecture-cortexm": "^6.2.0",
-    "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
-    "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
+      "@micro-os-plus/architecture-cortexm": "^6.2.0",
+      "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+      "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
 {% elsif target == "cortex-a15" -%}
-    "@micro-os-plus/architecture-aarch32": "^3.1.0",
-    "@micro-os-plus/devices-qemu-aarch32": "^3.0.1",
+      "@micro-os-plus/architecture-aarch32": "^3.1.0",
+      "@micro-os-plus/devices-qemu-aarch32": "^3.0.1",
 {% elsif target == "cortex-a72" -%}
-    "@micro-os-plus/architecture-aarch64": "^3.1.0",
-    "@micro-os-plus/devices-qemu-aarch64": "^3.0.0",
+      "@micro-os-plus/architecture-aarch64": "^3.1.0",
+      "@micro-os-plus/devices-qemu-aarch64": "^3.0.0",
 {% elsif target == "riscv-rv32imac" -%}
-    "@micro-os-plus/architecture-riscv": "^4.1.0",
-    "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
+      "@micro-os-plus/architecture-riscv": "^4.1.0",
+      "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
 {% elsif target == "riscv-rv64imafdc" -%}
-    "@micro-os-plus/architecture-riscv": "^4.1.0",
-    "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
+      "@micro-os-plus/architecture-riscv": "^4.1.0",
+      "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
 {% endif -%}
-    "@micro-os-plus/build-helper": "^2.11.0",
-    "@micro-os-plus/diag-trace": "^4.1.1",
-    "@micro-os-plus/semihosting": "^8.0.0",
-    "@micro-os-plus/startup": "^5.2.0"
-  },
-  "devDependencies": {
+      "@micro-os-plus/build-helper": "^2.11.0",
+      "@micro-os-plus/diag-trace": "^4.1.1",
+      "@micro-os-plus/semihosting": "^8.0.0",
+      "@micro-os-plus/startup": "^5.2.0"
+    },
+    "devDependencies": {
 {% if buildGenerator == "cmake" -%}
-    "@xpack-dev-tools/cmake": "3.21.6-1.1",
+      "@xpack-dev-tools/cmake": "3.21.6-1.1",
 {% elsif buildGenerator == "meson" -%}
-    "@xpack-dev-tools/meson-build": "0.60.3-1.1",
+      "@xpack-dev-tools/meson-build": "0.60.3-1.1",
 {% endif -%}
-    "@xpack-dev-tools/ninja-build": "1.11.0-1.1",
+      "@xpack-dev-tools/ninja-build": "1.11.0-1.1",
 {% if target == "cortex-a72" -%}
-    "@xpack-dev-tools/aarch64-none-elf-gcc": "11.2.1-1.2.2",
+      "@xpack-dev-tools/aarch64-none-elf-gcc": "11.2.1-1.2.2",
 {% elsif target == "riscv-rv32imac" -%}
-    "@xpack-dev-tools/riscv-none-elf-gcc": "12.1.0-2.1",
+      "@xpack-dev-tools/riscv-none-elf-gcc": "12.1.0-2.1",
 {% elsif target == "riscv-rv64imafdc" -%}
-    "@xpack-dev-tools/riscv-none-elf-gcc": "12.1.0-2.1",
+      "@xpack-dev-tools/riscv-none-elf-gcc": "12.1.0-2.1",
 {% else -%}
-    "@xpack-dev-tools/arm-none-eabi-gcc": "11.2.1-1.2.2",
+      "@xpack-dev-tools/arm-none-eabi-gcc": "11.2.1-1.2.2",
 {% endif -%}
 {% if target == "riscv-rv32imac" -%}
-    "@xpack-dev-tools/qemu-riscv": "7.0.0-1.1"
+      "@xpack-dev-tools/qemu-riscv": "7.0.0-1.1"
 {% elsif target == "riscv-rv64imafdc" -%}
-    "@xpack-dev-tools/qemu-riscv": "7.0.0-1.1"
+      "@xpack-dev-tools/qemu-riscv": "7.0.0-1.1"
 {% else -%}
-    "@xpack-dev-tools/qemu-arm": "7.0.0-1.1"
+      "@xpack-dev-tools/qemu-arm": "7.0.0-1.1"
 {% endif -%}
-  },
-  "xpack": {
-    "minimumXpmRequired": "0.13.7",
+    },
     "properties": {
-      {% raw %}"buildFolderRelativePath": "{{ 'build' | path_join: configuration.name | to_filename | downcase }}",
+    {% raw %}"buildFolderRelativePath": "{{ 'build' | path_join: configuration.name | to_filename | downcase }}",
       "buildFolderRelativePathPosix": "{{ 'build' | path_posix_join: configuration.name | downcase }}",{% endraw %}
 {% if buildGenerator == "cmake" -%}
-      {% raw %}"commandCMakePrepare": "{{ properties.commandCMakeReconfigure }} --log-level=VERBOSE",
+    {% raw %}"commandCMakePrepare": "{{ properties.commandCMakeReconfigure }} --log-level=VERBOSE",
       "commandCMakePrepareWithToolchain": "{{ properties.commandCMakePrepare }} -D CMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchains/{{ properties.toolchainFileName }}",
       "commandCMakeReconfigure": "cmake -S . -B {{ properties.buildFolderRelativePathPosix }} -G Ninja -D CMAKE_BUILD_TYPE={{ properties.buildType }} -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_EXPORT_COMPILE_COMMANDS=ON",
       "commandCMakeBuild": "cmake --build {{ properties.buildFolderRelativePathPosix }}",
@@ -98,7 +101,7 @@
       "commandCMakeClean": "cmake --build {{ properties.buildFolderRelativePathPosix }} --target clean",
       "commandCMakePerformTests": "cd {{ properties.buildFolderRelativePath }} && ctest -V"{% endraw %}
 {% elsif buildGenerator == "meson" -%}
-      {% raw %}"commandMesonPrepare": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} {{ properties.buildFolderRelativePathPosix }} .",
+    {% raw %}"commandMesonPrepare": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} {{ properties.buildFolderRelativePathPosix }} .",
       "commandMesonPrepareWithToolchain": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --native-file xpacks/micro-os-plus-build-helper/meson/toolchains/{{ properties.toolchainFileName }} --native-file platform-{{ properties.platformName }}/meson/native.ini {{ properties.buildFolderRelativePathPosix }} .",
       "commandMesonPrepareCross": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --cross xpacks/micro-os-plus-build-helper/meson/toolchains/{{ properties.toolchainFileName }} --cross platform-{{ properties.platformName }}/meson/cross.ini {{ properties.buildFolderRelativePathPosix }} .",
       "commandMesonReconfigure": "meson setup --reconfigure {{ properties.buildFolderRelativePathPosix }} .",
@@ -181,7 +184,7 @@
 {% endif -%}
         },
         "actions": {
-          {% raw %}"prepare": "{{ properties.commandCMakePrepareWithToolchain }}",
+        {% raw %}"prepare": "{{ properties.commandCMakePrepareWithToolchain }}",
           "build": [
             "{{ properties.commandCMakeReconfigure }}",
             "{{ properties.commandCMakeBuild }}"
@@ -206,21 +209,21 @@
           "buildType": "debug",
           "platformName": "{{ platform }}",
 {% if target == "cortex-m0" -%}
-          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
+        {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
 {% elsif target == "cortex-m7f" -%}
-          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
+        {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
 {% elsif target == "cortex-a15" -%}
-          {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
+        {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
 {% elsif target == "cortex-a72" -%}
-          {% raw %}"toolchainFileName": "aarch64-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
+        {% raw %}"toolchainFileName": "aarch64-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
 {% elsif target == "riscv-rv32imac" -%}
-          {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
+        {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
 {% elsif target == "riscv-rv64imafdc" -%}
-          {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
+        {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
 {% endif -%}
         },
         "actions": {
-          {% raw %}"prepare": "{{ properties.commandMesonPrepareCross }}",
+        {% raw %}"prepare": "{{ properties.commandMesonPrepareCross }}",
           "build": [
             "{{ properties.commandMesonReconfigure }}",
             "{{ properties.commandMesonBuild }}"
