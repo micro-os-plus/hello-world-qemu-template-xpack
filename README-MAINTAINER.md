@@ -96,7 +96,7 @@ The version is visible at:
 
 ## Testing
 
-The first test is via `xpm init`
+The first test is via `xpm init`:
 
 ```sh
 mkdir -p ~/tmp/test-hello
@@ -113,7 +113,7 @@ To run them, use:
 
 ```sh
 cd hello-world-qemu-template-xpack.git
-xpm install
+npm install
 xpm run test-all
 ```
 
