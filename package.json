@@ -26,10 +26,10 @@
     "type": "git",
     "url": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack.git"
   },
+  "homepage": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/",
   "bugs": {
     "url": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues/"
   },
-  "homepage": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/",
   "keywords": [
     "xpack",
     "template",
