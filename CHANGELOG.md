@@ -8,6 +8,7 @@ and close existing issues and pull requests.
 
 ## 2022-08-16
 
+* v1.4.1
 * 55c80fd package-liquid.json: fix empty bundledDependencies
 * v1.4.0
 
