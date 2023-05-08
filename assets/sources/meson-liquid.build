@@ -99,6 +99,12 @@ app_hello_world_dependency = declare_dependency(
   sources: files(
     'src/main.{{ fileExtension }}',
   ),
+  compile_args: [
+    # None.
+  ],
+  dependencies: [
+    # None.
+  ]
 )
 
 message('+ -I include')
