@@ -1,5 +1,5 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/hello-world-qemu-template-xpack)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/blob/micro-os-plus/LICENSE)
-[![CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/CI.yml/badge.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/CI.yml)
+[![CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml)
 [![GitHub issues](https://img.shields.io/github/issues/micro-os-plus/hello-world-qemu-template-xpack.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues/)
 [![GitHub pulls](https://img.shields.io/github/issues-pr/micro-os-plus/hello-world-qemu-template-xpack.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/pulls/)
 
@@ -120,7 +120,7 @@ xpm run test-all
 ## Continuous Integration
 
 All available tests are also performed on GitHub Actions, as the
-[CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/CI.yml)
+[CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml)
 workflow.
 
 ## Update the repo
