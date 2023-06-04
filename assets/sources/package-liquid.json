@@ -132,35 +132,35 @@
       ],
       "link-deps": [
 {% if target == "cortex-m0" -%}
-        "xpm link @xpack-3rd-party/arm-cmsis-core --quiet",
-        "xpm link @micro-os-plus/architecture-cortexm --quiet",
-        "xpm link @micro-os-plus/devices-qemu-cortexm --quiet",
-        "xpm link @micro-os-plus/startup --quiet",
+        "xpm link @xpack-3rd-party/arm-cmsis-core",
+        "xpm link @micro-os-plus/architecture-cortexm",
+        "xpm link @micro-os-plus/devices-qemu-cortexm",
+        "xpm link @micro-os-plus/startup",
 {% elsif target == "cortex-m7f" -%}
-        "xpm link @xpack-3rd-party/arm-cmsis-core --quiet",
-        "xpm link @micro-os-plus/architecture-cortexm --quiet",
-        "xpm link @micro-os-plus/devices-qemu-cortexm --quiet",
-        "xpm link @micro-os-plus/startup --quiet",
+        "xpm link @xpack-3rd-party/arm-cmsis-core",
+        "xpm link @micro-os-plus/architecture-cortexm",
+        "xpm link @micro-os-plus/devices-qemu-cortexm",
+        "xpm link @micro-os-plus/startup",
 {% elsif target == "cortex-a15" -%}
-        "xpm link @micro-os-plus/architecture-aarch32 --quiet",
-        "xpm link @micro-os-plus/devices-qemu-aarch32 --quiet",
-        "xpm link @micro-os-plus/startup --quiet",
+        "xpm link @micro-os-plus/architecture-aarch32",
+        "xpm link @micro-os-plus/devices-qemu-aarch32",
+        "xpm link @micro-os-plus/startup",
 {% elsif target == "cortex-a72" -%}
-        "xpm link @micro-os-plus/architecture-aarch64 --quiet",
-        "xpm link @micro-os-plus/devices-qemu-aarch64 --quiet",
-        "xpm link @micro-os-plus/startup --quiet",
+        "xpm link @micro-os-plus/architecture-aarch64",
+        "xpm link @micro-os-plus/devices-qemu-aarch64",
+        "xpm link @micro-os-plus/startup",
 {% elsif target == "riscv-rv32imac" -%}
-        "xpm link @micro-os-plus/architecture-riscv --quiet",
-        "xpm link @micro-os-plus/devices-qemu-riscv --quiet",
-        "xpm link @micro-os-plus/startup --quiet",
+        "xpm link @micro-os-plus/architecture-riscv",
+        "xpm link @micro-os-plus/devices-qemu-riscv",
+        "xpm link @micro-os-plus/startup",
 {% elsif target == "riscv-rv64imafdc" -%}
-        "xpm link @micro-os-plus/architecture-riscv --quiet",
-        "xpm link @micro-os-plus/devices-qemu-riscv --quiet",
-        "xpm link @micro-os-plus/startup --quiet",
+        "xpm link @micro-os-plus/architecture-riscv",
+        "xpm link @micro-os-plus/devices-qemu-riscv",
+        "xpm link @micro-os-plus/startup",
 {% endif -%}
-        "xpm link @micro-os-plus/build-helper --quiet",
-        "xpm link @micro-os-plus/diag-trace --quiet",
-        "xpm link @micro-os-plus/semihosting --quiet"
+        "xpm link @micro-os-plus/build-helper",
+        "xpm link @micro-os-plus/diag-trace",
+        "xpm link @micro-os-plus/semihosting"
       ]
     },
 {% if buildGenerator == "cmake" -%}
