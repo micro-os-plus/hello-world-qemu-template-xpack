@@ -226,9 +226,9 @@ class Test {
 
     shx.echo()
     command = 'xpm install'
-    if (this.complexity !== 'develop') {
-      command += ' --quiet'
-    }
+    // if (this.complexity !== 'develop') {
+    //   command += ' --quiet'
+    // }
     shx.echo(`$ ${command}`)
     try {
       shx.exec(command)
