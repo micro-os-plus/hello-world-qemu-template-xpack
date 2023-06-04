@@ -60,7 +60,7 @@
       "@micro-os-plus/architecture-riscv": "^4.1.0",
       "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
 {% endif -%}
-      "@micro-os-plus/build-helper": "^2.11.0",
+      "@micro-os-plus/build-helper": "github:micro-os-plus/build-helper-xpack#xpack-develop",
       "@micro-os-plus/diag-trace": "^4.1.1",
       "@micro-os-plus/semihosting": "^8.0.0",
       "@micro-os-plus/startup": "^5.2.0"
@@ -94,7 +94,7 @@
       "buildFolderRelativePathPosix": "{{ 'build' | path_posix_join: configuration.name | downcase }}",{% endraw %}
 {% if buildGenerator == "cmake" -%}
     {% raw %}"commandCMakePrepare": "{{ properties.commandCMakeReconfigure }} --log-level=VERBOSE",
-      "commandCMakePrepareWithToolchain": "{{ properties.commandCMakePrepare }} -D CMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchains/{{ properties.toolchainFileName }}",
+      "commandCMakePrepareWithToolchain": "{{ properties.commandCMakePrepare }} -D CMAKE_TOOLCHAIN_FILE=xpacks/@micro-os-plus/build-helper/cmake/toolchains/{{ properties.toolchainFileName }}",
       "commandCMakeReconfigure": "cmake -S . -B {{ properties.buildFolderRelativePathPosix }} -G Ninja -D CMAKE_BUILD_TYPE={{ properties.buildType }} -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_EXPORT_COMPILE_COMMANDS=ON",
       "commandCMakeBuild": "cmake --build {{ properties.buildFolderRelativePathPosix }}",
       "commandCMakeBuildVerbose": "cmake --build {{ properties.buildFolderRelativePathPosix }} --verbose",
@@ -102,8 +102,8 @@
       "commandCMakePerformTests": "cd {{ properties.buildFolderRelativePath }} && ctest -V"{% endraw %}
 {% elsif buildGenerator == "meson" -%}
     {% raw %}"commandMesonPrepare": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} {{ properties.buildFolderRelativePathPosix }} .",
-      "commandMesonPrepareWithToolchain": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --native-file xpacks/micro-os-plus-build-helper/meson/toolchains/{{ properties.toolchainFileName }} --native-file platform-{{ properties.platformName }}/meson/native.ini {{ properties.buildFolderRelativePathPosix }} .",
-      "commandMesonPrepareCross": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --cross xpacks/micro-os-plus-build-helper/meson/toolchains/{{ properties.toolchainFileName }} --cross platform-{{ properties.platformName }}/meson/cross.ini {{ properties.buildFolderRelativePathPosix }} .",
+      "commandMesonPrepareWithToolchain": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --native-file xpacks/@micro-os-plus/build-helper/meson/toolchains/{{ properties.toolchainFileName }} --native-file platform-{{ properties.platformName }}/meson/native.ini {{ properties.buildFolderRelativePathPosix }} .",
+      "commandMesonPrepareCross": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --cross xpacks/@micro-os-plus/build-helper/meson/toolchains/{{ properties.toolchainFileName }} --cross platform-{{ properties.platformName }}/meson/cross.ini {{ properties.buildFolderRelativePathPosix }} .",
       "commandMesonReconfigure": "meson setup --reconfigure {{ properties.buildFolderRelativePathPosix }} .",
       "commandMesonBuild": "meson compile -C {{ properties.buildFolderRelativePathPosix }}",
       "commandMesonBuildVerbose": "meson compile -C {{ properties.buildFolderRelativePathPosix }} --verbose",

@@ -100,24 +100,24 @@ add_global_link_arguments(
 # The base folder is root, via the `top` link.
 xpack_dependencies = [
   # -
-  'xpacks/micro-os-plus-diag-trace',
+  'xpacks/@micro-os-plus/diag-trace',
   # -
-  # 'xpacks/micro-os-plus-micro-test-plus',
+  # 'xpacks/@micro-os-plus/micro-test-plus',
 
   # -
-  # 'xpacks/micro-os-plus-version',
+  # 'xpacks/@micro-os-plus/version',
   # -
-  'xpacks/xpack-3rd-party-arm-cmsis-core',
+  'xpacks/@xpack-3rd-party/arm-cmsis-core',
   # (architecture) -
-  'xpacks/micro-os-plus-architecture-cortexm',
+  'xpacks/@micro-os-plus/architecture-cortexm',
 
   # +(diag_trace, architecture) >semihosting
-  'xpacks/micro-os-plus-semihosting',
+  'xpacks/@micro-os-plus/semihosting',
   # +(semihosting) >devices_cortexm
-  # 'xpacks/micro-os-plus-devices-cortexm',
+  # 'xpacks/@micro-os-plus/devices-cortexm',
 
   # +(arm_cmsis_core_m, devices_cortexm, startup) >devices_qemu_cortexm
-  'xpacks/micro-os-plus-devices-qemu-cortexm',
+  'xpacks/@micro-os-plus/devices-qemu-cortexm',
 ]
 
 # -----------------------------------------------------------------------------

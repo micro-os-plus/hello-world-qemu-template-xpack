@@ -119,9 +119,9 @@ foreach name : test_names
     # '-v',
 
     # Path are relative to the build folder.
-    '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-devices-qemu-cortexm/linker-scripts/mem-mps2-an500.ld',
-    '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections-flash.ld',
-    # '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-architecture-cortexm/linker-scripts/sections-ram.ld',
+    '-T'+ xpack_project_folder_path + '/xpacks/@micro-os-plus/devices-qemu-cortexm/linker-scripts/mem-mps2-an500.ld',
+    '-T'+ xpack_project_folder_path + '/xpacks/@micro-os-plus/architecture-cortexm/linker-scripts/sections-flash.ld',
+    # '-T'+ xpack_project_folder_path + '/xpacks/@micro-os-plus/architecture-cortexm/linker-scripts/sections-ram.ld',
   ]
 
   if name == 'hello-world'

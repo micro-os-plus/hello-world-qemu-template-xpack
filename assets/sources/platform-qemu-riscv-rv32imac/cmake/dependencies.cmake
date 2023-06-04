@@ -15,12 +15,12 @@
 # This file adds the platform dependencies.
 
 set(xpack_dependencies_folders
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-riscv"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-devices-qemu-riscv"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-diag-trace"
-  # "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-micro-test-plus"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-semihosting"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-startup"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/architecture-riscv"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/devices-qemu-riscv"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/diag-trace"
+  # "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/micro-test-plus"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/semihosting"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/startup"
 )
 
 xpack_add_dependencies_subdirectories("${xpack_dependencies_folders}" "xpacks-bin")

@@ -119,9 +119,9 @@ foreach name : test_names
     # '-v',
 
     # Path are relative to the build folder.
-    '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-devices-qemu-aarch64/linker-scripts/mem-cortex-a72.ld',
-    # '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-architecture-aarch64/linker-scripts/sections-flash.ld',
-    '-T'+ xpack_project_folder_path + '/xpacks/micro-os-plus-architecture-aarch64/linker-scripts/sections-ram.ld',
+    '-T'+ xpack_project_folder_path + '/xpacks/@micro-os-plus/devices-qemu-aarch64/linker-scripts/mem-cortex-a72.ld',
+    # '-T'+ xpack_project_folder_path + '/xpacks/@micro-os-plus/architecture-aarch64/linker-scripts/sections-flash.ld',
+    '-T'+ xpack_project_folder_path + '/xpacks/@micro-os-plus/architecture-aarch64/linker-scripts/sections-ram.ld',
   ]
 
   if name == 'hello-world'

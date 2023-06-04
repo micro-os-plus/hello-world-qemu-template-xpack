@@ -15,13 +15,13 @@
 # This file adds the platform dependencies.
 
 set(xpack_dependencies_folders
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-aarch32"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-devices-qemu-aarch32"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-diag-trace"
-  # "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-micro-test-plus"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-semihosting"
-  "${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-startup"
-  # "${CMAKE_SOURCE_DIR}/xpacks/xpack-3rd-party-arm-cmsis-core"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/architecture-aarch32"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/devices-qemu-aarch32"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/diag-trace"
+  # "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/micro-test-plus"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/semihosting"
+  "${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/startup"
+  # "${CMAKE_SOURCE_DIR}/xpacks/@xpack-3rd-party/arm-cmsis-core"
 )
 
 xpack_add_dependencies_subdirectories("${xpack_dependencies_folders}" "xpacks-bin")

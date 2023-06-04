@@ -17,24 +17,24 @@
 # The base folder is root, via the `top` link.
 xpack_dependencies = [
   # -
-  'xpacks/micro-os-plus-diag-trace',
+  'xpacks/@micro-os-plus/diag-trace',
   # -
-  # 'xpacks/micro-os-plus-micro-test-plus',
+  # 'xpacks/@micro-os-plus/micro-test-plus',
 
   # -
-  # 'xpacks/micro-os-plus-version',
+  # 'xpacks/@micro-os-plus/version',
   # -
   # (architecture) -
-  'xpacks/micro-os-plus-architecture-riscv',
+  'xpacks/@micro-os-plus/architecture-riscv',
 
   # +(diag_trace, architecture) >semihosting
-  'xpacks/micro-os-plus-semihosting',
+  'xpacks/@micro-os-plus/semihosting',
 
   # -
-  'xpacks/micro-os-plus-startup',
+  'xpacks/@micro-os-plus/startup',
 
   # ...
-  'xpacks/micro-os-plus-devices-qemu-riscv',
+  'xpacks/@micro-os-plus/devices-qemu-riscv',
 ]
 
 # -----------------------------------------------------------------------------

@@ -111,9 +111,9 @@ function(add_test_executable name)
 
     # Including files from other packages is not very nice, but functional.
     # Use absolute paths, otherwise set -L.
-    -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-devices-qemu-riscv/linker-scripts/mem-virt-rv32.ld
-    # -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-riscv/linker-scripts/sections-flash.ld
-    -T${CMAKE_SOURCE_DIR}/xpacks/micro-os-plus-architecture-riscv/linker-scripts/sections-ram.ld
+    -T${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/devices-qemu-riscv/linker-scripts/mem-virt-rv32.ld
+    # -T${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/architecture-riscv/linker-scripts/sections-flash.ld
+    -T${CMAKE_SOURCE_DIR}/xpacks/@micro-os-plus/architecture-riscv/linker-scripts/sections-ram.ld
   )
 
   target_link_libraries(${name}  PRIVATE

@@ -17,25 +17,25 @@
 # The base folder is root, via the `top` link.
 xpack_dependencies = [
   # -
-  'xpacks/micro-os-plus-diag-trace',
+  'xpacks/@micro-os-plus/diag-trace',
   # -
-  # 'xpacks/micro-os-plus-micro-test-plus',
+  # 'xpacks/@micro-os-plus/micro-test-plus',
 
   # -
-  # 'xpacks/micro-os-plus-version',
+  # 'xpacks/@micro-os-plus/version',
   # -
-  # 'xpacks/xpack-3rd-party-arm-cmsis-core',
+  # 'xpacks/@xpack-3rd-party/arm-cmsis-core',
   # (architecture) -
-  'xpacks/micro-os-plus-architecture-aarch64',
+  'xpacks/@micro-os-plus/architecture-aarch64',
 
   # +(diag_trace, architecture) >semihosting
-  'xpacks/micro-os-plus-semihosting',
+  'xpacks/@micro-os-plus/semihosting',
 
   # -
-  'xpacks/micro-os-plus-startup',
+  'xpacks/@micro-os-plus/startup',
 
   # +(arm_cmsis_core_m, devices_aarch64, startup) >devices_qemu_aarch64
-  'xpacks/micro-os-plus-devices-qemu-aarch64',
+  'xpacks/@micro-os-plus/devices-qemu-aarch64',
 ]
 
 # -----------------------------------------------------------------------------

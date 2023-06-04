@@ -156,58 +156,58 @@ project folder:
 + @xpack-dev-tools/ninja-build@1.10.2-5.1
 + @xpack-dev-tools/qemu-arm@7.0.0-1.1
 + @xpack-dev-tools/cmake@3.20.6-2.1
-'xpacks/micro-os-plus-devices-qemu-cortexm' -> '/Users/ilg/Library/xPacks/@micro-os-plus/devices-qemu-cortexm/4.1.1'
-'xpacks/micro-os-plus-build-helper' -> '/Users/ilg/Library/xPacks/@micro-os-plus/build-helper/2.9.0'
-'xpacks/micro-os-plus-architecture-cortexm' -> '/Users/ilg/Library/xPacks/@micro-os-plus/architecture-cortexm/6.1.0'
-'xpacks/micro-os-plus-semihosting' -> '/Users/ilg/Library/xPacks/@micro-os-plus/semihosting/5.0.0'
-'xpacks/xpack-3rd-party-arm-cmsis-core' -> '/Users/ilg/Library/xPacks/@xpack-3rd-party/arm-cmsis-core/5.4.0-6'
-'xpacks/micro-os-plus-diag-trace' -> '/Users/ilg/Library/xPacks/@micro-os-plus/diag-trace/4.0.0'
-'xpacks/xpack-dev-tools-arm-none-eabi-gcc' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/11.2.1-1.2.2'
-'xpacks/xpack-dev-tools-ninja-build' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/ninja-build/1.10.2-5.1'
-'xpacks/xpack-dev-tools-qemu-arm' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/qemu-arm/7.0.0-1.1'
-'xpacks/xpack-dev-tools-cmake' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/cmake/3.20.6-2.1'
-'xpacks/.bin/arm-none-eabi-addr2line' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-addr2line'
-'xpacks/.bin/qemu-system-arm' -> '../xpack-dev-tools-qemu-arm/.content/bin/qemu-system-arm'
-'xpacks/.bin/ccmake' -> '../xpack-dev-tools-cmake/.content/bin/ccmake'
-'xpacks/.bin/ninja' -> '../xpack-dev-tools-ninja-build/.content/bin/ninja'
-'xpacks/.bin/arm-none-eabi-ar' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-ar'
-'xpacks/.bin/qemu-system-aarch64' -> '../xpack-dev-tools-qemu-arm/.content/bin/qemu-system-aarch64'
-'xpacks/.bin/cmake' -> '../xpack-dev-tools-cmake/.content/bin/cmake'
-'xpacks/.bin/arm-none-eabi-as' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-as'
-'xpacks/.bin/qemu-system-gnuarmeclipse' -> '../xpack-dev-tools-qemu-arm/.content/bin/qemu-system-gnuarmeclipse'
-'xpacks/.bin/cpack' -> '../xpack-dev-tools-cmake/.content/bin/cpack'
-'xpacks/.bin/arm-none-eabi-as-py3' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-as-py3'
-'xpacks/.bin/ctest' -> '../xpack-dev-tools-cmake/.content/bin/ctest'
-'xpacks/.bin/arm-none-eabi-c++' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-c++'
-'xpacks/.bin/arm-none-eabi-c++filt' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-c++filt'
-'xpacks/.bin/arm-none-eabi-cpp' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-cpp'
-'xpacks/.bin/arm-none-eabi-elfedit' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-elfedit'
-'xpacks/.bin/arm-none-eabi-g++' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-g++'
-'xpacks/.bin/arm-none-eabi-gcc' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc'
-'xpacks/.bin/arm-none-eabi-gcc-ar' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc-ar'
-'xpacks/.bin/arm-none-eabi-gcc-nm' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc-nm'
-'xpacks/.bin/arm-none-eabi-gcc-ranlib' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc-ranlib'
-'xpacks/.bin/arm-none-eabi-gcov' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcov'
-'xpacks/.bin/arm-none-eabi-gcov-dump' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcov-dump'
-'xpacks/.bin/arm-none-eabi-gcov-tool' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcov-tool'
-'xpacks/.bin/arm-none-eabi-gdb' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb'
-'xpacks/.bin/arm-none-eabi-gdb-add-index' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb-add-index'
-'xpacks/.bin/arm-none-eabi-gdb-add-index-py3' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb-add-index-py3'
-'xpacks/.bin/arm-none-eabi-gdb-py3' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb-py3'
-'xpacks/.bin/arm-none-eabi-gfortran' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gfortran'
-'xpacks/.bin/arm-none-eabi-gprof' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gprof'
-'xpacks/.bin/arm-none-eabi-gprof-py3' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-gprof-py3'
-'xpacks/.bin/arm-none-eabi-ld' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-ld'
-'xpacks/.bin/arm-none-eabi-ld.bfd' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-ld.bfd'
-'xpacks/.bin/arm-none-eabi-lto-dump' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-lto-dump'
-'xpacks/.bin/arm-none-eabi-nm' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-nm'
-'xpacks/.bin/arm-none-eabi-objcopy' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-objcopy'
-'xpacks/.bin/arm-none-eabi-objdump' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-objdump'
-'xpacks/.bin/arm-none-eabi-ranlib' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-ranlib'
-'xpacks/.bin/arm-none-eabi-readelf' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-readelf'
-'xpacks/.bin/arm-none-eabi-size' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-size'
-'xpacks/.bin/arm-none-eabi-strings' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-strings'
-'xpacks/.bin/arm-none-eabi-strip' -> '../xpack-dev-tools-arm-none-eabi-gcc/.content/bin/arm-none-eabi-strip'
+'xpacks/@micro-os-plus/devices-qemu-cortexm' -> '/Users/ilg/Library/xPacks/@micro-os-plus/devices-qemu-cortexm/4.1.1'
+'xpacks/@micro-os-plus/build-helper' -> '/Users/ilg/Library/xPacks/@micro-os-plus/build-helper/2.9.0'
+'xpacks/@micro-os-plus/architecture-cortexm' -> '/Users/ilg/Library/xPacks/@micro-os-plus/architecture-cortexm/6.1.0'
+'xpacks/@micro-os-plus/semihosting' -> '/Users/ilg/Library/xPacks/@micro-os-plus/semihosting/5.0.0'
+'xpacks/@xpack-3rd-party/arm-cmsis-core' -> '/Users/ilg/Library/xPacks/@xpack-3rd-party/arm-cmsis-core/5.4.0-6'
+'xpacks/@micro-os-plus/diag-trace' -> '/Users/ilg/Library/xPacks/@micro-os-plus/diag-trace/4.0.0'
+'xpacks/@xpack-dev-tools/arm-none-eabi-gcc' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/arm-none-eabi-gcc/11.2.1-1.2.2'
+'xpacks/@xpack-dev-tools/ninja-build' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/ninja-build/1.10.2-5.1'
+'xpacks/@xpack-dev-tools/qemu-arm' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/qemu-arm/7.0.0-1.1'
+'xpacks/@xpack-dev-tools/cmake' -> '/Users/ilg/Library/xPacks/@xpack-dev-tools/cmake/3.20.6-2.1'
+'xpacks/.bin/arm-none-eabi-addr2line' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-addr2line'
+'xpacks/.bin/qemu-system-arm' -> '../@xpack-dev-tools/qemu-arm/.content/bin/qemu-system-arm'
+'xpacks/.bin/ccmake' -> '../@xpack-dev-tools/cmake/.content/bin/ccmake'
+'xpacks/.bin/ninja' -> '../@xpack-dev-tools/ninja-build/.content/bin/ninja'
+'xpacks/.bin/arm-none-eabi-ar' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-ar'
+'xpacks/.bin/qemu-system-aarch64' -> '../@xpack-dev-tools/qemu-arm/.content/bin/qemu-system-aarch64'
+'xpacks/.bin/cmake' -> '../@xpack-dev-tools/cmake/.content/bin/cmake'
+'xpacks/.bin/arm-none-eabi-as' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-as'
+'xpacks/.bin/qemu-system-gnuarmeclipse' -> '../@xpack-dev-tools/qemu-arm/.content/bin/qemu-system-gnuarmeclipse'
+'xpacks/.bin/cpack' -> '../@xpack-dev-tools/cmake/.content/bin/cpack'
+'xpacks/.bin/arm-none-eabi-as-py3' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-as-py3'
+'xpacks/.bin/ctest' -> '../@xpack-dev-tools/cmake/.content/bin/ctest'
+'xpacks/.bin/arm-none-eabi-c++' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-c++'
+'xpacks/.bin/arm-none-eabi-c++filt' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-c++filt'
+'xpacks/.bin/arm-none-eabi-cpp' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-cpp'
+'xpacks/.bin/arm-none-eabi-elfedit' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-elfedit'
+'xpacks/.bin/arm-none-eabi-g++' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-g++'
+'xpacks/.bin/arm-none-eabi-gcc' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc'
+'xpacks/.bin/arm-none-eabi-gcc-ar' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc-ar'
+'xpacks/.bin/arm-none-eabi-gcc-nm' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc-nm'
+'xpacks/.bin/arm-none-eabi-gcc-ranlib' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcc-ranlib'
+'xpacks/.bin/arm-none-eabi-gcov' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcov'
+'xpacks/.bin/arm-none-eabi-gcov-dump' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcov-dump'
+'xpacks/.bin/arm-none-eabi-gcov-tool' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gcov-tool'
+'xpacks/.bin/arm-none-eabi-gdb' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb'
+'xpacks/.bin/arm-none-eabi-gdb-add-index' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb-add-index'
+'xpacks/.bin/arm-none-eabi-gdb-add-index-py3' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb-add-index-py3'
+'xpacks/.bin/arm-none-eabi-gdb-py3' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gdb-py3'
+'xpacks/.bin/arm-none-eabi-gfortran' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gfortran'
+'xpacks/.bin/arm-none-eabi-gprof' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gprof'
+'xpacks/.bin/arm-none-eabi-gprof-py3' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-gprof-py3'
+'xpacks/.bin/arm-none-eabi-ld' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-ld'
+'xpacks/.bin/arm-none-eabi-ld.bfd' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-ld.bfd'
+'xpacks/.bin/arm-none-eabi-lto-dump' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-lto-dump'
+'xpacks/.bin/arm-none-eabi-nm' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-nm'
+'xpacks/.bin/arm-none-eabi-objcopy' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-objcopy'
+'xpacks/.bin/arm-none-eabi-objdump' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-objdump'
+'xpacks/.bin/arm-none-eabi-ranlib' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-ranlib'
+'xpacks/.bin/arm-none-eabi-readelf' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-readelf'
+'xpacks/.bin/arm-none-eabi-size' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-size'
+'xpacks/.bin/arm-none-eabi-strings' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-strings'
+'xpacks/.bin/arm-none-eabi-strip' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-strip'
 %
 ```
 
@@ -221,7 +221,7 @@ including the toolchain, and running the tests can be done immediately.
 % xpm run test-all
 > xpm run test-qemu-cortex-m7f-cmake-debug
 > xpm run prepare --config qemu-cortex-m7f-cmake-debug
-> cmake -S . -B build/qemu-cortex-m7f-cmake-debug -G Ninja -D CMAKE_BUILD_TYPE=Debug -D PLATFORM_NAME=qemu-cortex-m7f -D CMAKE_EXPORT_COMPILE_COMMANDS=ON --log-level=VERBOSE -D CMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchains/arm-none-eabi-gcc.cmake
+> cmake -S . -B build/qemu-cortex-m7f-cmake-debug -G Ninja -D CMAKE_BUILD_TYPE=Debug -D PLATFORM_NAME=qemu-cortex-m7f -D CMAKE_EXPORT_COMPILE_COMMANDS=ON --log-level=VERBOSE -D CMAKE_TOOLCHAIN_FILE=xpacks/@micro-os-plus/build-helper/cmake/toolchains/arm-none-eabi-gcc.cmake
 -- The C compiler identification is GNU 11.2.1
 -- The CXX compiler identification is GNU 11.2.1
 -- Detecting C compiler ABI info
@@ -245,7 +245,7 @@ including the toolchain, and running the tests can be done immediately.
 -- Build type: Debug
 -- Project path: /Users/ilg/tmp/my-project
 -- Build path: /Users/ilg/tmp/my-project/build/qemu-cortex-m7f-cmake-debug
--- Module path: /Users/ilg/tmp/my-project/xpacks/micro-os-plus-build-helper/cmake
+-- Module path: /Users/ilg/tmp/my-project/xpacks/@micro-os-plus/build-helper/cmake
 -- CMAKE_C_COMPILER_ID: GNU
 -- CMAKE_SYSTEM_NAME: Generic
 -- CMAKE_SYSTEM_PROCESSOR: arm
@@ -276,13 +276,13 @@ including the toolchain, and running the tests can be done immediately.
 -- .G+ $<$<CONFIG:Debug>:-fno-omit-frame-pointer>
 -- .G+ $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
 -- .G+ $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
--- Adding 'xpacks/micro-os-plus-architecture-cortexm'...
+-- Adding 'xpacks/@micro-os-plus/architecture-cortexm'...
 -- Processing xPack @micro-os-plus/architecture-cortexm@6.1.0...
 -- > micro-os-plus-architecture-cortexm-interface
 -- + -I include
 -- > micro-os-plus::architecture-cortexm -> micro-os-plus-architecture-cortexm-interface
 -- > micro-os-plus::architecture -> micro-os-plus-architecture-cortexm-interface
--- Adding 'xpacks/micro-os-plus-devices-qemu-cortexm'...
+-- Adding 'xpacks/@micro-os-plus/devices-qemu-cortexm'...
 -- Processing xPack @micro-os-plus/devices-qemu-cortexm@4.1.1...
 -- > micro-os-plus-devices-qemu-cortexm-interface
 -- + -I include
@@ -294,13 +294,13 @@ including the toolchain, and running the tests can be done immediately.
 -- + xpack-3rd-party::arm-cmsis-core-m
 -- > micro-os-plus::devices-qemu-cortexm -> micro-os-plus-devices-qemu-cortexm-interface
 -- > micro-os-plus::device -> micro-os-plus-devices-qemu-cortexm-interface
--- Adding 'xpacks/micro-os-plus-diag-trace'...
+-- Adding 'xpacks/@micro-os-plus/diag-trace'...
 -- Processing xPack @micro-os-plus/diag-trace@4.0.0...
 -- > micro-os-plus-diag-trace-interface
 -- + -I include
 -- + src/trace.cpp
 -- > micro-os-plus::diag-trace -> micro-os-plus-diag-trace-interface
--- Adding 'xpacks/micro-os-plus-semihosting'...
+-- Adding 'xpacks/@micro-os-plus/semihosting'...
 -- Processing xPack @micro-os-plus/semihosting@5.0.0...
 -- > micro-os-plus-semihosting-interface
 -- + -I include
@@ -309,7 +309,7 @@ including the toolchain, and running the tests can be done immediately.
 -- + micro-os-plus::diag-trace
 -- + micro-os-plus::architecture
 -- > micro-os-plus::semihosting -> micro-os-plus-semihosting-interface
--- Adding 'xpacks/xpack-3rd-party-arm-cmsis-core'...
+-- Adding 'xpacks/@xpack-3rd-party/arm-cmsis-core'...
 -- Processing xPack @xpack-3rd-party/arm-cmsis-core@5.4.0-6...
 -- > xpack-3rd-party-arm-cmsis-core-m-interface
 -- + -I CMSIS/Core/Include
@@ -367,7 +367,7 @@ test 1
 Total Test time (real) =   0.04 sec
 > xpm run test-qemu-cortex-m7f-cmake-release
 > xpm run prepare --config qemu-cortex-m7f-cmake-release
-> cmake -S . -B build/qemu-cortex-m7f-cmake-release -G Ninja -D CMAKE_BUILD_TYPE=Release -D PLATFORM_NAME=qemu-cortex-m7f -D CMAKE_EXPORT_COMPILE_COMMANDS=ON --log-level=VERBOSE -D CMAKE_TOOLCHAIN_FILE=xpacks/micro-os-plus-build-helper/cmake/toolchains/arm-none-eabi-gcc.cmake
+> cmake -S . -B build/qemu-cortex-m7f-cmake-release -G Ninja -D CMAKE_BUILD_TYPE=Release -D PLATFORM_NAME=qemu-cortex-m7f -D CMAKE_EXPORT_COMPILE_COMMANDS=ON --log-level=VERBOSE -D CMAKE_TOOLCHAIN_FILE=xpacks/@micro-os-plus/build-helper/cmake/toolchains/arm-none-eabi-gcc.cmake
 -- The C compiler identification is GNU 11.2.1
 -- The CXX compiler identification is GNU 11.2.1
 -- Detecting C compiler ABI info
@@ -391,7 +391,7 @@ Total Test time (real) =   0.04 sec
 -- Build type: Release
 -- Project path: /Users/ilg/tmp/my-project
 -- Build path: /Users/ilg/tmp/my-project/build/qemu-cortex-m7f-cmake-release
--- Module path: /Users/ilg/tmp/my-project/xpacks/micro-os-plus-build-helper/cmake
+-- Module path: /Users/ilg/tmp/my-project/xpacks/@micro-os-plus/build-helper/cmake
 -- CMAKE_C_COMPILER_ID: GNU
 -- CMAKE_SYSTEM_NAME: Generic
 -- CMAKE_SYSTEM_PROCESSOR: arm
@@ -420,13 +420,13 @@ Total Test time (real) =   0.04 sec
 -- .G+ $<$<CONFIG:Debug>:-fno-omit-frame-pointer>
 -- .G+ $<$<COMPILE_LANGUAGE:CXX>:-fno-use-cxa-atexit>
 -- .G+ $<$<COMPILE_LANGUAGE:CXX>:-fno-threadsafe-statics>
--- Adding 'xpacks/micro-os-plus-architecture-cortexm'...
+-- Adding 'xpacks/@micro-os-plus/architecture-cortexm'...
 -- Processing xPack @micro-os-plus/architecture-cortexm@6.1.0...
 -- > micro-os-plus-architecture-cortexm-interface
 -- + -I include
 -- > micro-os-plus::architecture-cortexm -> micro-os-plus-architecture-cortexm-interface
 -- > micro-os-plus::architecture -> micro-os-plus-architecture-cortexm-interface
--- Adding 'xpacks/micro-os-plus-devices-qemu-cortexm'...
+-- Adding 'xpacks/@micro-os-plus/devices-qemu-cortexm'...
 -- Processing xPack @micro-os-plus/devices-qemu-cortexm@4.1.1...
 -- > micro-os-plus-devices-qemu-cortexm-interface
 -- + -I include
@@ -438,13 +438,13 @@ Total Test time (real) =   0.04 sec
 -- + xpack-3rd-party::arm-cmsis-core-m
 -- > micro-os-plus::devices-qemu-cortexm -> micro-os-plus-devices-qemu-cortexm-interface
 -- > micro-os-plus::device -> micro-os-plus-devices-qemu-cortexm-interface
--- Adding 'xpacks/micro-os-plus-diag-trace'...
+-- Adding 'xpacks/@micro-os-plus/diag-trace'...
 -- Processing xPack @micro-os-plus/diag-trace@4.0.0...
 -- > micro-os-plus-diag-trace-interface
 -- + -I include
 -- + src/trace.cpp
 -- > micro-os-plus::diag-trace -> micro-os-plus-diag-trace-interface
--- Adding 'xpacks/micro-os-plus-semihosting'...
+-- Adding 'xpacks/@micro-os-plus/semihosting'...
 -- Processing xPack @micro-os-plus/semihosting@5.0.0...
 -- > micro-os-plus-semihosting-interface
 -- + -I include
@@ -453,7 +453,7 @@ Total Test time (real) =   0.04 sec
 -- + micro-os-plus::diag-trace
 -- + micro-os-plus::architecture
 -- > micro-os-plus::semihosting -> micro-os-plus-semihosting-interface
--- Adding 'xpacks/xpack-3rd-party-arm-cmsis-core'...
+-- Adding 'xpacks/@xpack-3rd-party/arm-cmsis-core'...
 -- Processing xPack @xpack-3rd-party/arm-cmsis-core@5.4.0-6...
 -- > xpack-3rd-party-arm-cmsis-core-m-interface
 -- + -I CMSIS/Core/Include
