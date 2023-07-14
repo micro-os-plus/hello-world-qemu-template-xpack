@@ -51,7 +51,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # -----------------------------------------------------------------------------
 
 if(CMAKE_BINARY_DIR STREQUAL CMAKE_SOURCE_DIR)
-  message(FATAL_ERROR "In-source builds are not supported. Please use separate folder for build.")
+  message(FATAL_ERROR "In-source builds are not supported. Please use a separate folder for build.")
 endif()
 
 # The build-helper is a devDependency, available only after `xpm install`.
