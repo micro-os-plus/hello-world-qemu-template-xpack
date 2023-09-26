@@ -54,11 +54,11 @@
   },
   "dependencies": {
     "@ilg/cli-start-options": "^0.6.6",
-    "cp-file": "^9.0.0",
-    "del": "^6.1.1",
+    "cp-file": "^10.0.0",
+    "del": "^7.1.0",
     "git-config-path": "^2.0.0",
-    "liquidjs": "^9.39.2",
-    "make-dir": "^3.1.0",
+    "liquidjs": "^10.9.2",
+    "make-dir": "^4.0.0",
     "parse-git-config": "^3.0.0"
   },
   "bundledDependencies": [
@@ -71,9 +71,10 @@
     "parse-git-config"
   ],
   "devDependencies": {
+    "del-cli": "^5.1.0",
     "shelljs": "^0.8.5",
-    "standard": "^17.0.0",
-    "xpm": "^0.16.1"
+    "standard": "^17.1.0",
+    "xpm": "^0.17.0"
   },
   "xpack": {
     "minimumXpmRequired": "0.16.2"
