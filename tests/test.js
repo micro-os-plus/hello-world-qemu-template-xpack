@@ -23,7 +23,7 @@ import os from 'os'
 import path from 'path'
 // import util from 'util'
 
-import { fileURLToPath } from 'url';
+import { fileURLToPath } from 'url'
 
 // https://www.npmjs.com/package/shelljs
 import shx from 'shelljs'
