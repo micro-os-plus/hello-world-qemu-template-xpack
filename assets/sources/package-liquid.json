@@ -64,7 +64,7 @@
       "@micro-os-plus/architecture-riscv": "^4.1.0",
       "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
 {% endif -%}
-      "@micro-os-plus/build-helper": "github:micro-os-plus/build-helper-xpack#xpack-develop",
+      "@micro-os-plus/build-helper": "^2.13.0",
       "@micro-os-plus/diag-trace": "^4.2.0",
       "@micro-os-plus/semihosting": "^8.0.0",
       "@micro-os-plus/startup": "^5.2.0"
