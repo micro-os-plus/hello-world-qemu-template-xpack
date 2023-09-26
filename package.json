@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "fix": "standard --fix",
+    "test-clean": "del-cli build",
     "test-ci": "node ./tests/test.js ci",
     "test-all": "node ./tests/test.js all",
     "test-cortexm": "node ./tests/test.js cortexm",
@@ -21,7 +22,8 @@
     "npm-audit": "npm audit fix --force",
     "postversion": "git push origin --all && git push origin --tags",
     "git-log": "git log --pretty='%cd * %h %s' --date=short",
-    "clean-build": "rm -rf build"
+    "deep-clean": "del-cli build node_modules package-lock.json",
+    "npm-version": "echo $(which node) $(node --version) && echo $(which npm) $(npm --version)"
   },
   "repository": {
     "type": "git",
