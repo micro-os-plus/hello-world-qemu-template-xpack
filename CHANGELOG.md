@@ -8,6 +8,11 @@ and close existing issues and pull requests.
 
 ## 2023-09-26
 
+* 0280875 1.4.3
+* 33d5b61 package-liquid.json fix helper deps
+* fdc60a3 1.4.2
+* 0ab3727 fix standard
+* f0acf5b prepare v1.4.2
 * 20dc22c ci.yml: update
 * ed04109 assets: bump deps
 * 0d2ba79 update for ESM
