@@ -1,6 +1,6 @@
 {
   "name": "@micro-os-plus/hello-world-qemu-template",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "A source xPack  / npm package with a template to generate semihosted Hello World projects running on QEMU",
   "main": "./index.js",
   "type": "module",
