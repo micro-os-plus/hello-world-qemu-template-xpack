@@ -3,10 +3,10 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/hello-world-qemu-template-xpack)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/blob/micro-os-plus/LICENSE)
 [![CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml)
 
-# A template to generate semihosted Hello World projects running on QEMU
+# A template to generate Hello World semihosted application running on QEMU
 
 Generate simple bare-metal _Hello World_
-projects that run on QEMU (**Arm Cortex-M**, **Arm Cortex-A 32/64** and
+applications that run on QEMU (**Arm Cortex-M**, **Arm Cortex-A 32/64** and
 **RISC-V 32/64** devices).
 
 The project is hosted on GitHub as
@@ -81,8 +81,8 @@ interactive mode and the user can manually enter each choice.
 % xpm init --template @micro-os-plus/hello-world-qemu-template@latest
 
 Checking package @micro-os-plus/hello-world-qemu-template@latest metadata...
-Installing @micro-os-plus/hello-world-qemu-template@1.2.0...
-Processing @micro-os-plus/hello-world-qemu-template@1.2.0...
+Installing @micro-os-plus/hello-world-qemu-template@1.4.2...
+Processing @micro-os-plus/hello-world-qemu-template@1.4.2...
 
 Target? (cortex-m7f, cortex-m0, cortex-a15, cortex-a72, riscv-rv32imac, riscv-rv64imafdc, ?) [cortex-m7f]:
 Programming language? (c, cpp, ?) [cpp]:
@@ -113,8 +113,8 @@ have defaults.
 % mkdir -p my-project && cd my-project
 % xpm init --template @micro-os-plus/hello-world-qemu-template@latest --property target=cortex-m7f
 
-Installing @micro-os-plus/hello-world-qemu-template@1.2.0...
-Processing @micro-os-plus/hello-world-qemu-template@1.2.0...
+Installing @micro-os-plus/hello-world-qemu-template@1.4.2...
+Processing @micro-os-plus/hello-world-qemu-template@1.4.2...
 
 Creating the C++ project 'my-project'...
 - target=cortex-m7f
@@ -240,7 +240,7 @@ including the toolchain, and running the tests can be done immediately.
 -- CMake version: 3.20.6-gc90b991
 -- Compiler: GNU 11.2.1
 -- package.name: @my-scope/my-project
--- package.version: 1.2.0
+-- package.version: 1.4.2
 -- Platform name: qemu-cortex-m7f
 -- Build type: Debug
 -- Project path: /Users/ilg/tmp/my-project
@@ -386,7 +386,7 @@ Total Test time (real) =   0.04 sec
 -- CMake version: 3.20.6-gc90b991
 -- Compiler: GNU 11.2.1
 -- package.name: @my-scope/my-project
--- package.version: 1.2.0
+-- package.version: 1.4.2
 -- Platform name: qemu-cortex-m7f
 -- Build type: Release
 -- Project path: /Users/ilg/tmp/my-project
@@ -536,6 +536,6 @@ For maintainer and developer info, please see the
 
 ## License
 
-The original content is released under the
+Unless otherwise stated, the content is released under the terms of the
 [MIT License](https://opensource.org/licenses/MIT), with all rights reserved to
 [Liviu Ionescu](https://github.com/ilg-ul).

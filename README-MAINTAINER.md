@@ -16,8 +16,6 @@ Before making the release, perform some checks and tweaks.
 - `npm outdated` & `npm update`
 - or edit `package.json` and `npm install`
 - repeat until everything is up to date
-- for cp-file, stick to v9.1.0 as the latest before updating to import
-- for del, stick to v6.1.1 as the latest before updating to import
 
 Dependencies
 
@@ -58,7 +56,7 @@ Check GitHub issues and pull requests:
 - check the latest commits `npm run git-log`
 - open the `CHANGELOG.md` file
 - check if all previous fixed issues are in
-- commit with a message like _prepare v1.4.1_
+- commit with a message like _prepare v1.4.2_
 
 ## Publish on the npmjs.com server
 
@@ -137,5 +135,5 @@ When the package is considered stable:
 When the release is considered stable, promote it as `latest`:
 
 - `npm dist-tag ls @micro-os-plus/hello-world-qemu-template`
-- `npm dist-tag add @micro-os-plus/hello-world-qemu-template@1.4.1 latest`
+- `npm dist-tag add @micro-os-plus/hello-world-qemu-template@1.4.2 latest`
 - `npm dist-tag ls @micro-os-plus/hello-world-qemu-template`

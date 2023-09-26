@@ -6,9 +6,51 @@ Please check
 [GitHub](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues/)
 and close existing issues and pull requests.
 
+## 2023-09-26
+
+* 20dc22c ci.yml: update
+* ed04109 assets: bump deps
+* 0d2ba79 update for ESM
+* 0eccc98 package.json: bump deps
+* c667a88 package.json: update scripts
+* 1a98885 package.json: engines.node >=16.14.0
+* b69096d package.json: type: module
+
+## 2023-07-14
+
+* 973de5c README updates
+* 4565feb template.js: cosmetise urls
+* ccbcb49 assets: cosmetics
+* 5c769ba package-liquid.json: cosmetise urls
+* b9fe524 package.json: cosmetise urls
+* f264b0d package.json: minXpm 0.16.2
+
+## 2023-06-04
+
+* 7f70579 package.json: bump xpm 0.16.1
+* 5daa1a0 ci.yml: bump matrix.os, remove node 14
+* 65dc52e update for xpacks/@scope/name
+* 278c2e3 test.js: remove --quiet
+* 0d25d8a remove --quiet
+
+## 2023-06-03
+
+* ee51e34 lower case ci.yml
+* 45d1dcb package.json min 0.16.0
+* 8d9f4e6 package.json min 0.16.0
+* e782562 lower case ci.yml
+
+## 2023-05-08
+
+* 6d9d70a .npmignore update
+* 4c29ab6 meson.build cosmetics
+
 ## 2022-08-16
 
-* v1.4.1
+* c64b790 package.json min 0.14.0 & defaults
+* d96fab6 CHANGELOG update
+* 74ba828 1.4.1
+* ff0b606 prepare v1.4.1
 * 55c80fd package-liquid.json: fix empty bundledDependencies
 * v1.4.0
 
