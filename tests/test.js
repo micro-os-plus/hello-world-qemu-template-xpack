@@ -21,9 +21,8 @@
 import fs from 'fs'
 import os from 'os'
 import path from 'path'
-// import util from 'util'
-
 import { fileURLToPath } from 'url'
+// import util from 'util'
 
 // https://www.npmjs.com/package/shelljs
 import shx from 'shelljs'
