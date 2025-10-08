@@ -35,7 +35,7 @@
   "license": "MIT",
   "config": {},
   "engines": {
-    "node": " >=16.14.0"
+    "node": " >=20.0"
   },
   "dependencies": {},
   "bundledDependencies": [],
@@ -45,18 +45,18 @@
     "dependencies": {
 {% if target == "cortex-m0" -%}
       "@micro-os-plus/architecture-cortexm": "^6.3.0",
-      "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+      "@micro-os-plus/devices-qemu-cortexm": "^5.1.0",
       "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
 {% elsif target == "cortex-m7f" -%}
       "@micro-os-plus/architecture-cortexm": "^6.3.0",
-      "@micro-os-plus/devices-qemu-cortexm": "^4.1.1",
+      "@micro-os-plus/devices-qemu-cortexm": "^5.1.0",
       "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
 {% elsif target == "cortex-a15" -%}
       "@micro-os-plus/architecture-aarch32": "^3.2.0",
-      "@micro-os-plus/devices-qemu-aarch32": "^3.0.1",
+      "@micro-os-plus/devices-qemu-aarch32": "^4.0.0",
 {% elsif target == "cortex-a72" -%}
       "@micro-os-plus/architecture-aarch64": "^3.2.0",
-      "@micro-os-plus/devices-qemu-aarch64": "^3.0.0",
+      "@micro-os-plus/devices-qemu-aarch64": "^4.1.0",
 {% elsif target == "riscv-rv32imac" -%}
       "@micro-os-plus/architecture-riscv": "^4.1.0",
       "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
@@ -64,33 +64,33 @@
       "@micro-os-plus/architecture-riscv": "^4.1.0",
       "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
 {% endif -%}
-      "@micro-os-plus/build-helper": "^2.13.0",
+      "@micro-os-plus/build-helper": "^2.17.0",
       "@micro-os-plus/diag-trace": "^4.2.1",
       "@micro-os-plus/semihosting": "^8.0.0",
       "@micro-os-plus/startup": "^5.2.0"
     },
     "devDependencies": {
 {% if buildGenerator == "cmake" -%}
-      "@xpack-dev-tools/cmake": "3.26.5-1.1",
+      "@xpack-dev-tools/cmake": "3.31.9-1.1",
 {% elsif buildGenerator == "meson" -%}
-      "@xpack-dev-tools/meson-build": "1.0.2-1.1",
+      "@xpack-dev-tools/meson-build": "1.8.5-1.1",
 {% endif -%}
-      "@xpack-dev-tools/ninja-build": "1.11.1-3.1",
+      "@xpack-dev-tools/ninja-build": "1.13.1-1.1",
 {% if target == "cortex-a72" -%}
-      "@xpack-dev-tools/aarch64-none-elf-gcc": "12.3.1-2.1.1",
+      "@xpack-dev-tools/aarch64-none-elf-gcc": "14.2.1-1.1.1",
 {% elsif target == "riscv-rv32imac" -%}
-      "@xpack-dev-tools/riscv-none-elf-gcc": "13.2.0-2.1",
+      "@xpack-dev-tools/riscv-none-elf-gcc": "14.2.0-3.1",
 {% elsif target == "riscv-rv64imafdc" -%}
-      "@xpack-dev-tools/riscv-none-elf-gcc": "13.2.0-2.1",
+      "@xpack-dev-tools/riscv-none-elf-gcc": "14.2.0-3.1",
 {% else -%}
-      "@xpack-dev-tools/arm-none-eabi-gcc": "12.3.1-1.2.1",
+      "@xpack-dev-tools/arm-none-eabi-gcc": "14.2.1-1.1.1",
 {% endif -%}
 {% if target == "riscv-rv32imac" -%}
-      "@xpack-dev-tools/qemu-riscv": "7.2.5-1.1"
+      "@xpack-dev-tools/qemu-riscv": "8.2.6-1.1"
 {% elsif target == "riscv-rv64imafdc" -%}
-      "@xpack-dev-tools/qemu-riscv": "7.2.5-1.1"
+      "@xpack-dev-tools/qemu-riscv": "8.2.6-1.1"
 {% else -%}
-      "@xpack-dev-tools/qemu-arm": "7.2.5-1.1"
+      "@xpack-dev-tools/qemu-arm": "8.2.6-1.1"
 {% endif -%}
     },
     "properties": {
