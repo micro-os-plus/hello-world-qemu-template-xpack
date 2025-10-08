@@ -60,7 +60,7 @@ Check GitHub issues and pull requests:
 
 ## Publish on the npmjs.com server
 
-- select the `xpack-develop` branch
+- select the `xpack-development` branch
 - commit everything
 - `npm run fix`
 - commit all changes
@@ -126,9 +126,9 @@ workflow.
 When the package is considered stable:
 
 - with a Git client (VS Code is fine)
-- merge `xpack-develop` into `xpack`
+- merge `xpack-development` into `xpack`
 - push to GitHub
-- select `xpack-develop`
+- select `xpack-development`
 
 ## Tag the npm package as `latest`
 
