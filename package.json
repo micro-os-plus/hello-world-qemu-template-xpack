@@ -49,16 +49,13 @@
   },
   "license": "MIT",
   "config": {},
-  "engines": {
-    "node": " >=16.14.0"
-  },
   "dependencies": {
     "@ilg/cli-start-options": "^0.6.6",
     "cp-file": "^10.0.0",
-    "del": "^7.1.0",
+    "del": "^8.0.1",
     "git-config-path": "^2.0.0",
-    "liquidjs": "^10.9.2",
-    "make-dir": "^4.0.0",
+    "liquidjs": "^10.22.0",
+    "make-dir": "^5.1.0",
     "parse-git-config": "^3.0.0"
   },
   "bundledDependencies": [
@@ -71,12 +68,22 @@
     "parse-git-config"
   ],
   "devDependencies": {
-    "del-cli": "^5.1.0",
-    "shelljs": "^0.8.5",
-    "standard": "^17.1.0",
-    "xpm": "^0.17.0"
+    "del-cli": "^7.0.0",
+    "prettier": "3.6.2",
+    "shelljs": "^0.10.0",
+    "standard": "^17.1.2",
+    "xpm": "^0.20.8"
   },
   "xpack": {
     "minimumXpmRequired": "0.16.2"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "engines": {
+    "node": " >=20.0"
   }
 }
