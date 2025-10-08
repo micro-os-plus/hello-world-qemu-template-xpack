@@ -6,8 +6,32 @@ Please check
 [GitHub](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues/)
 and close existing issues and pull requests.
 
+## 2025-10-08
+
+* 2fd1c8e assets update PLATFORM & DEVICE definitions
+* 6762af0 template.js reformat
+* 3e607a6 package.*.json bump deps, add prettier
+* 8b9738b template.js: update dot.* copy
+* a265de3 template.js: update makeDirectory
+* 58931a7 rename assets dot.*
+
+## 2025-10-07
+
+* d701cd0 update copyright notices
+
+## 2023-11-28
+
+* b57e3a7 package.json: cosmetise scripts
+
+## 2023-10-19
+
+* 9dc8bcb package.json: cosmetise description
+* 6bc7030 package-liquid.json: bump deps
+* 968f576 test.js cosmetics
+
 ## 2023-09-26
 
+* 59ae150 READMEs updates
 * 0280875 1.4.3
 * 33d5b61 package-liquid.json fix helper deps
 * fdc60a3 1.4.2

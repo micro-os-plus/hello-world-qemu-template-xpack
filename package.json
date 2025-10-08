@@ -1,6 +1,6 @@
 {
   "name": "@micro-os-plus/hello-world-qemu-template",
-  "version": "1.4.3",
+  "version": "2.0.0-pre",
   "description": "A template to generate Hello World semihosted projects running on QEMU",
   "main": "./index.js",
   "type": "module",
