@@ -15,7 +15,7 @@ message(VERBOSE "Processing 'platform-qemu-cortex-m7f'...")
 
 # -----------------------------------------------------------------------------
 
-set(xpack_platform_compile_definition "PLATFORM_QEMU_CORTEX_M7F")
+set(xpack_platform_compile_definition "MICRO_OS_PLUS_PLATFORM_QEMU_CORTEX_M7F")
 
 # set(xpack_create_listing true)
 # set(xpack_create_hex true)

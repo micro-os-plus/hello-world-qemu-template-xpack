@@ -20,7 +20,7 @@ message('Including platform-qemu-cortex-a72 globals...')
 # -----------------------------------------------------------------------------
 
 # Required in devices-qemu-aarch64.
-xpack_device_compile_definition='DEVICE_QEMU_CORTEX_A72'
+xpack_device_compile_definition='MICRO_OS_PLUS_DEVICE_QEMU_CORTEX_A72'
 
 # -----------------------------------------------------------------------------
 

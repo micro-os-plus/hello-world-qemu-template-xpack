@@ -17,7 +17,7 @@ message('Processing platform-qemu-cortex-m0...')
 
 # -----------------------------------------------------------------------------
 
-xpack_platform_compile_definition = 'PLATFORM_QEMU_CORTEX_M0'
+xpack_platform_compile_definition = 'MICRO_OS_PLUS_PLATFORM_QEMU_CORTEX_M0'
 
 # Enable them only when needed.
 xpack_create_listing = false
