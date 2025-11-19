@@ -16,7 +16,7 @@
     "npm-install": "npm install",
     "outdated": "npm outdated",
     "update": "npm update",
-    "pack": "npm pack",
+    "npm-pack": "npm pack",
     "npm-version-patch": "npm version patch",
     "npm-version-minor": "npm version minor",
     "npm-audit": "npm audit fix --force",
