@@ -13,8 +13,6 @@
  */
 
 'use strict'
-/* eslint valid-jsdoc: "error" */
-/* eslint max-len: [ "error", 80, { "ignoreUrls": true } ] */
 
 // ----------------------------------------------------------------------------
 
@@ -39,13 +37,13 @@ const enableXpmLink = false
 
 class Test {
   // Synchronous.
-  static start () {
+  static start() {
     // Instantiate a new test.
     const test = new Test()
     process.exitCode = test.run(process.argv.length > 2 ? process.argv[2] : '')
   }
 
-  constructor () {
+  constructor() {
     const packageJsonPath = path.resolve(__dirname, '..', 'package.json')
     const packageJsonContent = fs.readFileSync(packageJsonPath)
     const packageJson = JSON.parse(packageJsonContent.toString())
@@ -56,13 +54,13 @@ class Test {
     this.count = 1
   }
 
-  run (complexity) {
+  run(complexity) {
     this.complexity = complexity
 
     // Uninstall possibly existing global package, to ensure the
     // test uses the current folder content.
-    const uninstall =
-      `xpm uninstall ${this.packageName} --global --ignore-errors`
+    // eslint-disable-next-line max-len
+    const uninstall = `xpm uninstall ${this.packageName} --global --ignore-errors`
     shx.echo(`$ ${uninstall}`)
     shx.exec(uninstall)
 
@@ -71,13 +69,14 @@ class Test {
     if (complexity === 'all') {
       shx.echo('Testing thoroughly...')
       for (const target of Object.keys(properties.target.items)) {
-        for (const buildGenerator of
-          Object.keys(properties.buildGenerator.items)) {
+        for (const buildGenerator of Object.keys(
+          properties.buildGenerator.items
+        )) {
           for (const language of Object.keys(properties.language.items)) {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
             })
             if (exitCode !== 0) {
               return exitCode
@@ -89,13 +88,14 @@ class Test {
     } else if (complexity === 'ci' || complexity === '') {
       shx.echo('Testing a selection of cases...')
       for (const target of Object.keys(properties.target.items)) {
-        for (const buildGenerator of
-          Object.keys(properties.buildGenerator.items)) {
+        for (const buildGenerator of Object.keys(
+          properties.buildGenerator.items
+        )) {
           for (const language of Object.keys(properties.language.items)) {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
             })
             if (exitCode !== 0) {
               return exitCode
@@ -107,13 +107,14 @@ class Test {
     } else if (complexity === 'cortexm') {
       shx.echo('Testing Cortex-M cases...')
       for (const target of ['cortex-m0', 'cortex-m7f']) {
-        for (const buildGenerator of
-          Object.keys(properties.buildGenerator.items)) {
+        for (const buildGenerator of Object.keys(
+          properties.buildGenerator.items
+        )) {
           for (const language of Object.keys(properties.language.items)) {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
             })
             if (exitCode !== 0) {
               return exitCode
@@ -125,13 +126,14 @@ class Test {
     } else if (complexity === 'cortexa') {
       shx.echo('Testing Cortex-A cases...')
       for (const target of ['cortex-a15', 'cortex-a72']) {
-        for (const buildGenerator of
-          Object.keys(properties.buildGenerator.items)) {
+        for (const buildGenerator of Object.keys(
+          properties.buildGenerator.items
+        )) {
           for (const language of Object.keys(properties.language.items)) {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
             })
             if (exitCode !== 0) {
               return exitCode
@@ -143,13 +145,14 @@ class Test {
     } else if (complexity === 'riscv') {
       shx.echo('Testing RISC-V cases...')
       for (const target of ['riscv-rv32imac', 'riscv-rv64imafdc']) {
-        for (const buildGenerator of
-          Object.keys(properties.buildGenerator.items)) {
+        for (const buildGenerator of Object.keys(
+          properties.buildGenerator.items
+        )) {
           for (const language of Object.keys(properties.language.items)) {
             exitCode = this.runOne({
               target,
               buildGenerator,
-              language
+              language,
             })
             if (exitCode !== 0) {
               return exitCode
@@ -169,7 +172,7 @@ class Test {
         // target: 'riscv-rv64imafdc',
         buildGenerator: 'cmake',
         // buildGenerator: 'meson',
-        language: 'cpp'
+        language: 'cpp',
       })
       if (exitCode !== 0) {
         return exitCode
@@ -188,13 +191,14 @@ class Test {
    * @param {*} properties Configuration properties.
    * @returns {int} exit code
    */
-  runOne (properties) {
+  runOne(properties) {
     // https://www.npmjs.com/package/shelljs
 
     shx.set('-e') // Exit upon error
 
     const count = ('0000' + this.count).slice(-3)
-    const name = `${count}-` +
+    const name =
+      `${count}-` +
       `${properties.target}-${properties.buildGenerator}-${properties.language}`
 
     shx.echo()
@@ -236,7 +240,7 @@ class Test {
     shx.echo(`$ ${command}`)
     try {
       shx.exec(command)
-    } catch (err) {
+    } catch {
       shx.echo()
       return 1
     }
@@ -247,7 +251,7 @@ class Test {
       shx.echo(`$ ${command}`)
       try {
         shx.exec(command)
-      } catch (err) {
+      } catch {
         shx.echo()
         return 1
       }
@@ -258,7 +262,7 @@ class Test {
     shx.echo(`$ ${command}`)
     try {
       shx.exec(command)
-    } catch (err) {
+    } catch {
       shx.echo()
       return 1
     }
@@ -275,7 +279,7 @@ class Test {
    * @param {number} n Duration in milliseconds.
    * @returns {string} Value in ms or sec.
    */
-  formatDuration (n) {
+  formatDuration(n) {
     if (n < 1000) {
       return `${n} ms`
     }
