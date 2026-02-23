@@ -12,8 +12,16 @@
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "[liquid]": {
+    "editor.formatOnSave": false,
+    "editor.formatOnType": false,
+    "editor.formatOnPaste": false,
+    "editor.defaultFormatter": null
+  },
   "files.associations": {
-    "*.json": "jsonc"
+    "*.json": "jsonc",
+    "*-liquid.*": "liquid",
+    "*.liquid": "liquid"
   },
   "cSpell.language": "en-GB",
   "cSpell.ignoreWords": [],
