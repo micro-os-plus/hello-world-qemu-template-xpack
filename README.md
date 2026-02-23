@@ -3,18 +3,19 @@
 [![license](https://img.shields.io/github/license/micro-os-plus/hello-world-qemu-template-xpack)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/blob/micro-os-plus/LICENSE)
 [![CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml)
 
-# A template to generate Hello World semihosted application running on QEMU
+# A template to generate Hello World semihosted applications running on QEMU
 
 Generate simple bare-metal _Hello World_
-applications that run on QEMU (**Arm Cortex-M**, **Arm Cortex-A 32/64** and
+applications that run on QEMU (**Arm Cortex-M**, **Arm Cortex-A 32/64**, and
 **RISC-V 32/64** devices).
 
 The project is hosted on GitHub as
 [micro-os-plus/hello-world-qemu-template-xpack](https://github.com/micro-os-plus/hello-world-qemu-template-xpack),
 and is also available from npmjs.com as
 [@micro-os-plus/hello-world-qemu-template](https://www.npmjs.com/package/@micro-os-plus/hello-world-qemu-template).
-As the name implies, is part of the
-[µOS++](https://github.com/micro-os-plus/) project.
+As the name implies, it is part of the
+[µOS++](https://github.com/micro-os-plus/) project, with some files _borrowed_
+from the [xPack](https://github.com/xpack/) project.
 
 ## Features
 
@@ -33,11 +34,11 @@ The targeted devices are:
 - RISC-V **RV32IMAC** (32-bit)
 - RISC-V **RV64IMAFDC** (64-bit FP)
 
-The template can be instantiated in a terminal, but the intended use was
+The template can be instantiated in a terminal, but the intended use is
 to be integrated into the
 [VS Code xPack Build](https://marketplace.visualstudio.com/items?itemName=ilg-vscode.xpack)
 extension and
-[Eclipse Embedded CDT](https://eclipse-embed-cdt.github.io),
+[Eclipse Embedded CDT](https://eclipse-embed-cdt.github.io)
 to generate new projects.
 
 ## Prerequisites
@@ -73,8 +74,8 @@ There are two modes, **interactive** and **scriptable** (non interactive).
 
 #### Interactive mode
 
-Starting the tool without defining the target will select the
-interactive mode and the user can manually enter each choice.
+Starting the tool without defining the target will enter
+interactive mode, where the user can manually enter each choice.
 
 ```console
 % mkdir -p my-project && cd my-project
@@ -106,7 +107,7 @@ File 'package.json' generated.
 
 When used in non-interactive environments, it is possible to pass
 all required data on the
-command line. The only mandatory property is `target`, all other
+command line. The only mandatory property is `target`; all others
 have defaults.
 
 ```console
@@ -519,8 +520,8 @@ The generated projects use the **xPack GNU Compiler Collection** toolchains.
 ### Windows specifics
 
 On Windows, the VS Code IntelliSense logic does not properly identify
-the toolchain when installed via npm/xpm ([#28](https://github.com/micro-os-plus/vscode-xpack-extension-ts/issues/28)); thus the need for CMake and meson
-to use the explicit program extensions (like `arm-none-eabi-gcc.cmd`).
+the toolchain when installed via npm/xpm ([#28](https://github.com/micro-os-plus/vscode-xpack-extension-ts/issues/28)); thus there is a need for CMake and meson
+to use explicit programme extensions (such as `arm-none-eabi-gcc.cmd`).
 
 ## Known problems
 
