@@ -27,7 +27,7 @@ import { fileURLToPath } from 'url'
 // https://www.npmjs.com/package/shelljs
 import shx from 'shelljs'
 
-import { properties } from '../lib/template.js'
+import { properties } from '../src/template.js'
 
 // ----------------------------------------------------------------------------
 
