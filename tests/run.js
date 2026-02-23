@@ -16,16 +16,19 @@
 
 // ----------------------------------------------------------------------------
 
-import fs from 'fs'
-import os from 'os'
-import path from 'path'
-import { fileURLToPath } from 'url'
-// import util from 'util'
+import fs from 'node:fs'
+import os from 'node:os'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
+// import util from 'node:util'
 
 // https://www.npmjs.com/package/shelljs
 import shx from 'shelljs'
 
-import { properties } from '../src/template.js'
+import { Logger } from '@xpack/logger'
+// import * as xpmLib from '@xpack/xpm-lib'
+
+import { XpmInitTemplate } from '../dist/index.js'
 
 // ----------------------------------------------------------------------------
 
@@ -37,10 +40,10 @@ const enableXpmLink = false
 
 class Test {
   // Synchronous.
-  static start() {
+  static start(argv) {
     // Instantiate a new test.
     const test = new Test()
-    process.exitCode = test.run(process.argv.length > 2 ? process.argv[2] : '')
+    return test.run(argv.length > 2 ? argv[2] : '')
   }
 
   constructor() {
@@ -54,8 +57,19 @@ class Test {
     this.count = 1
   }
 
-  run(complexity) {
+  run(complexity = '') {
     this.complexity = complexity
+
+    const xpmInitTemplate = new XpmInitTemplate({
+      context: {
+        log: new Logger({ level: 'info' }),
+        config: {
+          projectName: this.packageName,
+          properties: {},
+        },
+      },
+    })
+    const properties = xpmInitTemplate.propertiesDefinitions
 
     // Uninstall possibly existing global package, to ensure the
     // test uses the current folder content.
@@ -65,7 +79,9 @@ class Test {
     shx.exec(uninstall)
 
     let exitCode = 0
+
     this.startTime = Date.now()
+
     if (complexity === 'all') {
       shx.echo('Testing thoroughly...')
       for (const target of Object.keys(properties.target.items)) {
@@ -188,10 +204,10 @@ class Test {
 
   /**
    *
-   * @param {*} properties Configuration properties.
+   * @param {*} matrix Configuration properties.
    * @returns {int} exit code
    */
-  runOne(properties) {
+  runOne(matrix) {
     // https://www.npmjs.com/package/shelljs
 
     shx.set('-e') // Exit upon error
@@ -199,7 +215,7 @@ class Test {
     const count = ('0000' + this.count).slice(-3)
     const name =
       `${count}-` +
-      `${properties.target}-${properties.buildGenerator}-${properties.language}`
+      `${matrix.target}-${matrix.buildGenerator}-${matrix.language}`
 
     shx.echo()
     shx.echo(`Testing '${name}'...`)
@@ -223,7 +239,7 @@ class Test {
     const projectFolderPath = path.dirname(__dirname)
 
     let command = `xpm init --template "${projectFolderPath}" --name ${count}`
-    for (const [key, value] of Object.entries(properties)) {
+    for (const [key, value] of Object.entries(matrix)) {
       command += ` --property ${key}=${value}`
     }
     if (this.complexity === 'develop') {
@@ -287,6 +303,6 @@ class Test {
   }
 }
 
-Test.start()
+process.exitCode = Test.start(process.argv)
 
 // ----------------------------------------------------------------------------
