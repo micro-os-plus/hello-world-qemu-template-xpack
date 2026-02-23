@@ -2,56 +2,39 @@
   "editor.rulers": [
     80
   ],
-  "cSpell.ignoreWords": [
-    "HEAPINFO",
-    "Ionescu",
-    "Liviu",
-    "STREQUAL",
-    "aarch",
-    "autotools",
-    "buildtype",
-    "cmake",
-    "cmsis",
-    "cortexa",
-    "cortexm",
-    "ctest",
-    "diag",
-    "dirents",
-    "eabi",
-    "endcomment",
-    "endraw",
-    "ikey",
-    "imac",
-    "imafdc",
-    "ival",
-    "liquidjs",
-    "mcpu",
-    "minsize",
-    "mkdir",
-    "nographic",
-    "npmignore",
-    "npmjs",
-    "postversion",
-    "riscv",
-    "semihosted",
-    "semihosting",
-    "unimp",
-    "virt",
-    "xpack",
-    "xpacks"
-  ],
-  "cmake.ignoreCMakeListsMissing": true,
-  "cmake.configureOnOpen": false,
-  "makefile.configureOnOpen": false,
-  "editor.wordWrap": "on",
-  "npm.exclude": [
-    "**/build/**",
-    "**/xpacks/**"
-  ],
+  "editor.detectIndentation": false,
+  "editor.insertSpaces": true,
+  "editor.tabSize": 2,
+  "editor.formatOnSave": true,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  },
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+  "cSpell.language": "en-GB",
+  "cSpell.ignoreWords": [],
+  "prettier.configPath": "config/.prettierrc.json",
+  "prettier.ignorePath": "config/.prettierignore",
+  "markdownlint.config": {
+    "MD041": false
+  },
+  "cmake.ignoreCMakeListsMissing": true,
+  "cmake.configureOnOpen": false,
+  "makefile.configureOnOpen": false,
+  "npm.exclude": [
+    "**/xpacks/**",
+    "**/build/**",
+    "**/tests/**",
+    "**/tmp/**"
+  ],
+  "xpack.exclude": [
+    "**/xpacks/**",
+    "**/build/**",
+    "**/tests/**",
+    "**/tmp/**"
+  ]
 }

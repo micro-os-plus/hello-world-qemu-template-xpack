@@ -1,0 +1,94 @@
+# -----------------------------------------------------------------------------
+# DO NOT EDIT!
+# Automatically generated from npm-packages-helper/templates/*.
+#
+# This file is part of the xPack project (http://xpack.github.io).
+# Copyright (c) 2021-2026 Liviu Ionescu. All rights reserved.
+#
+# Permission to use, copy, modify, and/or distribute this software
+# for any purpose is hereby granted, under the terms of the MIT license.
+#
+# If a copy of the license was not distributed with this file, it can
+# be obtained from https://opensource.org/licenses/mit.
+#
+# -----------------------------------------------------------------------------
+
+# https://help.github.com/en/actions
+# https://docs.github.com/en/actions/writing-workflows/workflow-syntax-for-github-actions
+
+# https://github.com/actions
+# https://github.com/actions/checkout
+# https://github.com/actions/setup-node
+
+# -----------------------------------------------------------------------------
+
+# https://github.com/micro-os-plus/hello-world-qemu-template-xpack/
+# https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/test-ci.yml
+name: CI on Push
+
+on:
+  push:
+    branches:
+      - 'xpack'
+      - 'xpack-development'
+    tags-ignore:
+      - '**'
+    paths-ignore:
+      - 'docs/**'
+      - 'website/**'
+      - 'LICENSE'
+      - '**.md'
+      - '.gitignore'
+      - '.npmignore'
+      - '.clang-format'
+      - '.vscode/**'
+      - '.github/FUNDING.yml'
+      - '.github/workflows/publish-github-pages*.yml'
+      - '.github/workflows/trigger-publish-github-pages*.yml'
+      - 'README*.md'
+
+# Allow one concurrent run.
+concurrency:
+  group: 'test'
+  cancel-in-progress: true
+
+jobs:
+  ci-test:
+    name: 'CI hello-world-qemu-template-xpack test'
+
+    strategy:
+      matrix:
+        # https://github.com/actions/setup-node
+        node-version: [ 20, 22, 24 ]
+        # https://github.com/actions/runner-images
+        os: [ 'ubuntu-24.04', 'ubuntu-24.04-arm', 'macos-15-intel', 'macos-15', 'windows-2025' ]
+
+    runs-on: ${{matrix.os}}
+
+    steps:
+    - name: Checkout
+      # https://github.com/actions/checkout
+      uses: actions/checkout@v6.0.2
+      with:
+        fetch-depth: 1
+
+    - name: Setup Node.js ${{matrix.node-version}} on ${{matrix.os}}
+      # https://github.com/actions/setup-node
+      uses: actions/setup-node@v6.2.0
+      with:
+        node-version: ${{matrix.node-version}}
+        cache: 'npm'
+
+    - name: Show node & npm versions, environment
+      run: |
+        node --version
+        npm --version
+        env | sort
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Run test
+      run: npm run test-ci
+      env:
+        CI: true
