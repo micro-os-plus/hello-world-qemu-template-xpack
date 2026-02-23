@@ -17,9 +17,9 @@
 
 #include <main.h>
 
-{% if language == "cpp" -%}
+{% if matrix.language == "cpp" -%}
 #include <iostream>
-{% elsif language == "c" -%}
+{% elsif matrix.language == "c" -%}
 #include <stdio.h>
 {% endif -%}
 
@@ -38,9 +38,9 @@
 int
 main(int argc, char* argv[])
 {
-{% if language == "cpp" -%}
+{% if matrix.language == "cpp" -%}
   std::cout << "Hello " << (argc > 1 ? argv[1] : DEFAULT_NAME) << " World!" << std::endl;
-{% elsif language == "c" -%}
+{% elsif matrix.language == "c" -%}
   printf("Hello %s World!" "\n", argc > 1 ? argv[1] : DEFAULT_NAME);
 {% endif -%}
 

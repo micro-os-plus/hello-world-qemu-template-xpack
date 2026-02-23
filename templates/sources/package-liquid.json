@@ -43,24 +43,24 @@
   "xpack": {
     "minimumXpmRequired": "0.16.2",
     "dependencies": {
-{% if target == "cortex-m0" -%}
+{% if matrix.target == "cortex-m0" -%}
       "@micro-os-plus/architecture-cortexm": "^6.3.0",
       "@micro-os-plus/devices-qemu-cortexm": "^5.1.0",
       "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
-{% elsif target == "cortex-m7f" -%}
+{% elsif matrix.target == "cortex-m7f" -%}
       "@micro-os-plus/architecture-cortexm": "^6.3.0",
       "@micro-os-plus/devices-qemu-cortexm": "^5.1.0",
       "@xpack-3rd-party/arm-cmsis-core": "5.4.0-6",
-{% elsif target == "cortex-a15" -%}
+{% elsif matrix.target == "cortex-a15" -%}
       "@micro-os-plus/architecture-aarch32": "^3.2.0",
       "@micro-os-plus/devices-qemu-aarch32": "^4.0.0",
-{% elsif target == "cortex-a72" -%}
+{% elsif matrix.target == "cortex-a72" -%}
       "@micro-os-plus/architecture-aarch64": "^3.2.0",
       "@micro-os-plus/devices-qemu-aarch64": "^4.1.0",
-{% elsif target == "riscv-rv32imac" -%}
+{% elsif matrix.target == "riscv-rv32imac" -%}
       "@micro-os-plus/architecture-riscv": "^4.1.0",
       "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
-{% elsif target == "riscv-rv64imafdc" -%}
+{% elsif matrix.target == "riscv-rv64imafdc" -%}
       "@micro-os-plus/architecture-riscv": "^4.1.0",
       "@micro-os-plus/devices-qemu-riscv": "^1.0.1",
 {% endif -%}
@@ -70,24 +70,24 @@
       "@micro-os-plus/startup": "^5.2.0"
     },
     "devDependencies": {
-{% if buildGenerator == "cmake" -%}
+{% if matrix.buildGenerator == "cmake" -%}
       "@xpack-dev-tools/cmake": "3.31.9-1.1",
-{% elsif buildGenerator == "meson" -%}
+{% elsif matrix.buildGenerator == "meson" -%}
       "@xpack-dev-tools/meson-build": "1.8.5-1.1",
 {% endif -%}
       "@xpack-dev-tools/ninja-build": "1.13.1-1.1",
-{% if target == "cortex-a72" -%}
+{% if matrix.target == "cortex-a72" -%}
       "@xpack-dev-tools/aarch64-none-elf-gcc": "14.2.1-1.1.1",
-{% elsif target == "riscv-rv32imac" -%}
+{% elsif matrix.target == "riscv-rv32imac" -%}
       "@xpack-dev-tools/riscv-none-elf-gcc": "14.2.0-3.1",
-{% elsif target == "riscv-rv64imafdc" -%}
+{% elsif matrix.target == "riscv-rv64imafdc" -%}
       "@xpack-dev-tools/riscv-none-elf-gcc": "14.2.0-3.1",
 {% else -%}
       "@xpack-dev-tools/arm-none-eabi-gcc": "14.2.1-1.1.1",
 {% endif -%}
-{% if target == "riscv-rv32imac" -%}
+{% if matrix.target == "riscv-rv32imac" -%}
       "@xpack-dev-tools/qemu-riscv": "8.2.6-1.1"
-{% elsif target == "riscv-rv64imafdc" -%}
+{% elsif matrix.target == "riscv-rv64imafdc" -%}
       "@xpack-dev-tools/qemu-riscv": "8.2.6-1.1"
 {% else -%}
       "@xpack-dev-tools/qemu-arm": "8.2.6-1.1"
@@ -96,15 +96,15 @@
     "properties": {
       {% raw %}"buildFolderRelativePath": "{{ 'build' | path_join: configuration.name | to_filename | downcase }}",
       "buildFolderRelativePathPosix": "{{ 'build' | path_posix_join: configuration.name | downcase }}",{% endraw %}
-{% if buildGenerator == "cmake" -%}
+{% if matrix.buildGenerator == "cmake" -%}
       {% raw %}"commandCMakePrepare": "{{ properties.commandCMakeReconfigure }} --log-level=VERBOSE",
       "commandCMakePrepareWithToolchain": "{{ properties.commandCMakePrepare }} -D CMAKE_TOOLCHAIN_FILE=xpacks/@micro-os-plus/build-helper/cmake/toolchains/{{ properties.toolchainFileName }}",
       "commandCMakeReconfigure": "cmake -S . -B {{ properties.buildFolderRelativePathPosix }} -G Ninja -D CMAKE_BUILD_TYPE={{ properties.buildType }} -D PLATFORM_NAME={{ properties.platformName }} -D CMAKE_EXPORT_COMPILE_COMMANDS=ON",
       "commandCMakeBuild": "cmake --build {{ properties.buildFolderRelativePathPosix }}",
       "commandCMakeBuildVerbose": "cmake --build {{ properties.buildFolderRelativePathPosix }} --verbose",
-      "commandCMakeClean": "cmake --build {{ properties.buildFolderRelativePathPosix }} --target clean",
+      "commandCMakeClean": "cmake --build {{ properties.buildFolderRelativePathPosix }} --matrix.target clean",
       "commandCMakePerformTests": "cd {{ properties.buildFolderRelativePath }} && ctest -V"{% endraw %}
-{% elsif buildGenerator == "meson" -%}
+{% elsif matrix.buildGenerator == "meson" -%}
       {% raw %}"commandMesonPrepare": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} {{ properties.buildFolderRelativePathPosix }} .",
       "commandMesonPrepareWithToolchain": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --native-file xpacks/@micro-os-plus/build-helper/meson/toolchains/{{ properties.toolchainFileName }} --native-file platform-{{ properties.platformName }}/meson/native.ini {{ properties.buildFolderRelativePathPosix }} .",
       "commandMesonPrepareCross": "meson setup --backend ninja --buildtype {{ properties.buildType }} -D platform-name={{ properties.platformName }} --cross xpacks/@micro-os-plus/build-helper/meson/toolchains/{{ properties.toolchainFileName }} --cross platform-{{ properties.platformName }}/meson/cross.ini {{ properties.buildFolderRelativePathPosix }} .",
@@ -116,48 +116,48 @@
 {% endif -%}
     },
     "actions": {
-      "test-{{ platform }}-{{ buildGenerator }}-debug": [
-        "xpm run prepare --config {{ platform }}-{{ buildGenerator }}-debug",
-        "xpm run build --config {{ platform }}-{{ buildGenerator }}-debug",
-        "xpm run test --config {{ platform }}-{{ buildGenerator }}-debug"
+      "test-{{ platform }}-{{ matrix.buildGenerator }}-debug": [
+        "xpm run prepare --config {{ platform }}-{{ matrix.buildGenerator }}-debug",
+        "xpm run build --config {{ platform }}-{{ matrix.buildGenerator }}-debug",
+        "xpm run test --config {{ platform }}-{{ matrix.buildGenerator }}-debug"
       ],
-      "test-{{ platform }}-{{ buildGenerator }}-release": [
-        "xpm run prepare --config {{ platform }}-{{ buildGenerator }}-release",
-        "xpm run build --config {{ platform }}-{{ buildGenerator }}-release",
-        "xpm run test --config {{ platform }}-{{ buildGenerator }}-release"
+      "test-{{ platform }}-{{ matrix.buildGenerator }}-release": [
+        "xpm run prepare --config {{ platform }}-{{ matrix.buildGenerator }}-release",
+        "xpm run build --config {{ platform }}-{{ matrix.buildGenerator }}-release",
+        "xpm run test --config {{ platform }}-{{ matrix.buildGenerator }}-release"
       ],
       "test-all": [
-        "xpm run test-{{ platform }}-{{ buildGenerator }}-debug",
-        "xpm run test-{{ platform }}-{{ buildGenerator }}-release"
+        "xpm run test-{{ platform }}-{{ matrix.buildGenerator }}-debug",
+        "xpm run test-{{ platform }}-{{ matrix.buildGenerator }}-release"
       ],
       "clean-all": [
-        "xpm run clean --config {{ platform }}-{{ buildGenerator }}-debug",
-        "xpm run clean --config {{ platform }}-{{ buildGenerator }}-release"
+        "xpm run clean --config {{ platform }}-{{ matrix.buildGenerator }}-debug",
+        "xpm run clean --config {{ platform }}-{{ matrix.buildGenerator }}-release"
       ],
       "link-deps": [
-{% if target == "cortex-m0" -%}
+{% if matrix.target == "cortex-m0" -%}
         "xpm link @xpack-3rd-party/arm-cmsis-core",
         "xpm link @micro-os-plus/architecture-cortexm",
         "xpm link @micro-os-plus/devices-qemu-cortexm",
         "xpm link @micro-os-plus/startup",
-{% elsif target == "cortex-m7f" -%}
+{% elsif matrix.target == "cortex-m7f" -%}
         "xpm link @xpack-3rd-party/arm-cmsis-core",
         "xpm link @micro-os-plus/architecture-cortexm",
         "xpm link @micro-os-plus/devices-qemu-cortexm",
         "xpm link @micro-os-plus/startup",
-{% elsif target == "cortex-a15" -%}
+{% elsif matrix.target == "cortex-a15" -%}
         "xpm link @micro-os-plus/architecture-aarch32",
         "xpm link @micro-os-plus/devices-qemu-aarch32",
         "xpm link @micro-os-plus/startup",
-{% elsif target == "cortex-a72" -%}
+{% elsif matrix.target == "cortex-a72" -%}
         "xpm link @micro-os-plus/architecture-aarch64",
         "xpm link @micro-os-plus/devices-qemu-aarch64",
         "xpm link @micro-os-plus/startup",
-{% elsif target == "riscv-rv32imac" -%}
+{% elsif matrix.target == "riscv-rv32imac" -%}
         "xpm link @micro-os-plus/architecture-riscv",
         "xpm link @micro-os-plus/devices-qemu-riscv",
         "xpm link @micro-os-plus/startup",
-{% elsif target == "riscv-rv64imafdc" -%}
+{% elsif matrix.target == "riscv-rv64imafdc" -%}
         "xpm link @micro-os-plus/architecture-riscv",
         "xpm link @micro-os-plus/devices-qemu-riscv",
         "xpm link @micro-os-plus/startup",
@@ -167,23 +167,23 @@
         "xpm link @micro-os-plus/semihosting"
       ]
     },
-{% if buildGenerator == "cmake" -%}
+{% if matrix.buildGenerator == "cmake" -%}
     "buildConfigurations": {
-      "{{ platform }}-{{ buildGenerator }}-debug": {
+      "{{ platform }}-{{ matrix.buildGenerator }}-debug": {
         "properties": {
           "buildType": "Debug",
           "platformName": "{{ platform }}",
-{% if target == "cortex-m0" -%}
+{% if matrix.target == "cortex-m0" -%}
           "toolchainFileName": "arm-none-eabi-gcc.cmake"
-{% elsif target == "cortex-m7f" -%}
+{% elsif matrix.target == "cortex-m7f" -%}
           "toolchainFileName": "arm-none-eabi-gcc.cmake"
-{% elsif target == "cortex-a15" -%}
+{% elsif matrix.target == "cortex-a15" -%}
           "toolchainFileName": "arm-none-eabi-gcc.cmake"
-{% elsif target == "cortex-a72" -%}
+{% elsif matrix.target == "cortex-a72" -%}
           "toolchainFileName": "aarch64-none-elf-gcc.cmake"
-{% elsif target == "riscv-rv32imac" -%}
+{% elsif matrix.target == "riscv-rv32imac" -%}
           "toolchainFileName": "riscv-none-elf-gcc.cmake"
-{% elsif target == "riscv-rv64imafdc" -%}
+{% elsif matrix.target == "riscv-rv64imafdc" -%}
           "toolchainFileName": "riscv-none-elf-gcc.cmake"
 {% endif -%}
         },
@@ -197,32 +197,32 @@
           "clean": "{{ properties.commandCMakeClean }}"{% endraw %}
         }
       },
-      "{{ platform }}-{{ buildGenerator }}-release": {
+      "{{ platform }}-{{ matrix.buildGenerator }}-release": {
         "inherit": [
-          "{{ platform }}-{{ buildGenerator }}-debug"
+          "{{ platform }}-{{ matrix.buildGenerator }}-debug"
         ],
         "properties": {
           "buildType": "Release"
         }
       }
     }
-{% elsif buildGenerator == "meson" -%}
+{% elsif matrix.buildGenerator == "meson" -%}
     "buildConfigurations": {
-      "{{ platform }}-{{ buildGenerator }}-debug": {
+      "{{ platform }}-{{ matrix.buildGenerator }}-debug": {
         "properties": {
           "buildType": "debug",
           "platformName": "{{ platform }}",
-{% if target == "cortex-m0" -%}
+{% if matrix.target == "cortex-m0" -%}
         {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
-{% elsif target == "cortex-m7f" -%}
+{% elsif matrix.target == "cortex-m7f" -%}
         {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
-{% elsif target == "cortex-a15" -%}
+{% elsif matrix.target == "cortex-a15" -%}
         {% raw %}"toolchainFileName": "arm-none-eabi-gcc-{{ os.platform }}.ini"{% endraw %}
-{% elsif target == "cortex-a72" -%}
+{% elsif matrix.target == "cortex-a72" -%}
         {% raw %}"toolchainFileName": "aarch64-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
-{% elsif target == "riscv-rv32imac" -%}
+{% elsif matrix.target == "riscv-rv32imac" -%}
         {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
-{% elsif target == "riscv-rv64imafdc" -%}
+{% elsif matrix.target == "riscv-rv64imafdc" -%}
         {% raw %}"toolchainFileName": "riscv-none-elf-gcc-{{ os.platform }}.ini"{% endraw %}
 {% endif -%}
         },
@@ -236,9 +236,9 @@
           "clean": "{{ properties.commandMesonClean }}"{% endraw %}
         }
       },
-      "{{ platform }}-{{ buildGenerator }}-release": {
+      "{{ platform }}-{{ matrix.buildGenerator }}-release": {
         "inherit": [
-          "{{ platform }}-{{ buildGenerator }}-debug"
+          "{{ platform }}-{{ matrix.buildGenerator }}-debug"
         ],
         "properties": {
           "buildType": "minsize"

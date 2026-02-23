@@ -52,8 +52,8 @@ separate build folders.
 
 The two build folders are:
 
-- `build/{{ platform }}-{{ buildGenerator }}-debug`
-- `build/{{ platform }}-{{ buildGenerator }}-release`
+- `build/{{ platform }}-{{ matrix.buildGenerator }}-debug`
+- `build/{{ platform }}-{{ matrix.buildGenerator }}-release`
 
 ## Project structure
 
@@ -75,8 +75,8 @@ The project defines several actions for each build configuration:
 
 There are also several top actions:
 
-- `test-{{ platform }}-{{ buildGenerator }}-debug`
-- `test-{{ platform }}-{{ buildGenerator }}-release`
+- `test-{{ platform }}-{{ matrix.buildGenerator }}-debug`
+- `test-{{ platform }}-{{ matrix.buildGenerator }}-release`
 - `clean-all`
 
 The `test-*` definitions perform the prepare/build/execute actions,
@@ -115,12 +115,12 @@ An example of such a `c_cpp_properties.json` file is:
 {
   "configurations": [
     {
-      "name": "{{ platform }}-{{ buildGenerator }}-debug",
-      "compileCommands": "${workspaceFolder}/build/{{ platform }}-{{ buildGenerator }}-debug/compile_commands.json"
+      "name": "{{ platform }}-{{ matrix.buildGenerator }}-debug",
+      "compileCommands": "${workspaceFolder}/build/{{ platform }}-{{ matrix.buildGenerator }}-debug/compile_commands.json"
     },
     {
-      "name": "{{ platform }}-{{ buildGenerator }}-release",
-      "compileCommands": "${workspaceFolder}/build/{{ platform }}-{{ buildGenerator }}-release/compile_commands.json"
+      "name": "{{ platform }}-{{ matrix.buildGenerator }}-release",
+      "compileCommands": "${workspaceFolder}/build/{{ platform }}-{{ matrix.buildGenerator }}-release/compile_commands.json"
     }
   ],
   "version": 4
@@ -141,5 +141,5 @@ for each build configuration.
 ## License
 
 Unless otherwise stated, the content is released under the terms of the
-[MIT License](https://opensource.org/licenses/MIT), with all rights reserved to
+[MIT License](https://opensource.org/licenses/mit), with all rights reserved to
 [Liviu Ionescu](https://github.com/ilg-ul).
