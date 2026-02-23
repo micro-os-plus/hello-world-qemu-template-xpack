@@ -202,6 +202,7 @@ export class XpmInitTemplate extends xpmLib.InitTemplateBase {
     substitutionsVariables.package = jsonPackage
 
     const platform = 'qemu-' + matrix.target
+    substitutionsVariables.platform = platform
 
     log.debug(`from='${this.templatesPath}'`)
     log.trace(util.inspect(substitutionsVariables))
@@ -230,8 +231,8 @@ export class XpmInitTemplate extends xpmLib.InitTemplateBase {
         destinationFilePath: 'meson.build',
       })
       await this.copyFile({
-        sourceFileRelativePath: 'meson/meson_options.txt',
-        destinationFilePath: 'meson/meson_options.txt',
+        sourceFileRelativePath: 'meson_options.txt',
+        destinationFilePath: 'meson_options.txt',
       })
     }
 
