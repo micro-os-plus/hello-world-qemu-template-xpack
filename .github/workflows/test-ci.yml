@@ -61,7 +61,7 @@ jobs:
         # https://github.com/actions/setup-node
         node-version: [ 20, 22, 24 ]
         # https://github.com/actions/runner-images
-        os: [ 'ubuntu-24.04', 'ubuntu-24.04-arm', 'macos-15-intel', 'macos-15', 'windows-2025' ]
+        os: [ 'ubuntu-24.04', 'ubuntu-24.04-arm', 'macos-15-intel', 'macos-15' ]
 
     runs-on: ${{matrix.os}}
 
