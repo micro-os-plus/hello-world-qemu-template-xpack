@@ -390,7 +390,7 @@ export class XpmInitTemplate {
       log.info()
     }
 
-    this.templatesPath = path.resolve(__dirname, '..', 'assets', 'sources')
+    this.templatesPath = path.resolve(__dirname, '..', 'templates', 'sources')
     log.debug(`from='${this.templatesPath}'`)
 
     // https://liquidjs.com
