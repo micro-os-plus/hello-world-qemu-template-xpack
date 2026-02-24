@@ -20,6 +20,10 @@
     "type": "git",
     "url": "git+https://github.com/micro-os-plus/hello-world-qemu-template-xpack.git"
   },
+  "bugs": {
+    "url": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues"
+  },
+  "homepage": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/",
   "keywords": [
     "xpack",
     "template",
@@ -35,10 +39,6 @@
     "url": "https://github.com/ilg-ul"
   },
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues"
-  },
-  "homepage": "https://github.com/micro-os-plus/hello-world-qemu-template-xpack/",
   "dependencies": {
     "@ilg/cli-start-options": "^0.6.6",
     "@xpack/logger": "^6.0.0",
@@ -114,6 +114,9 @@
     "prepublishOnly": "npm run lint && npm run test",
     "postpublish": "git push origin --follow-tags"
   },
+  "engines": {
+    "node": ">=20.0"
+  },
   "xpack": {
     "minimumXpmRequired": "0.23.0"
   },
@@ -134,8 +137,5 @@
     "useEslint": "true",
     "usePrettier": "true",
     "useCustomTests": "true"
-  },
-  "engines": {
-    "node": ">=20.0"
   }
 }
