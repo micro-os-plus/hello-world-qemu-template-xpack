@@ -92,9 +92,9 @@ export class XpmInitTemplate extends xpmLib.InitTemplateBase {
         substitutionsVariables.author = author;
         const githubId = gitConfig.user.email === 'ilg@livius.net' ? 'ilg-ul' : 'my-github-id';
         substitutionsVariables.githubId = githubId;
-        const packageJsonPath = path.resolve(moduleFolderPath, 'package.json');
-        const jsonContent = await fs.readFile(packageJsonPath);
-        const jsonPackage = JSON.parse(jsonContent.toString());
+        const jsonFilePath = path.resolve(moduleFolderPath, 'package.json');
+        const jsonFileContent = await fs.readFile(jsonFilePath);
+        const jsonPackage = JSON.parse(jsonFileContent.toString());
         substitutionsVariables.package = jsonPackage;
         const platform = 'qemu-' + matrix.target;
         substitutionsVariables.platform = platform;
