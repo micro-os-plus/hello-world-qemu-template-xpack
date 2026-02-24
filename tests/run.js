@@ -73,8 +73,8 @@ class Test {
 
     // Uninstall possibly existing global package, to ensure the
     // test uses the current folder content.
-    // eslint-disable-next-line max-len
-    const uninstall = `xpm uninstall ${this.packageName} --global --ignore-errors`
+    const uninstall =
+      `xpm uninstall ${this.packageName}` + ' --global --ignore-errors'
     shx.echo(`$ ${uninstall}`)
     shx.exec(uninstall)
 
