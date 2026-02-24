@@ -151,6 +151,9 @@ export class XpmInitTemplate extends xpmLib.InitTemplateBase {
     const fileExtension: string = matrix.language
     substitutionsVariables.fileExtension = fileExtension
 
+    const platform = 'qemu-' + matrix.target
+    substitutionsVariables.platform = platform
+
     const lang: string = matrix.language === 'cpp' ? 'C++' : 'C'
     log.info(
       `Creating the ${lang} project ` +
@@ -190,16 +193,15 @@ export class XpmInitTemplate extends xpmLib.InitTemplateBase {
       gitConfig.user.email === 'ilg@livius.net' ? 'ilg-ul' : 'my-github-id'
     substitutionsVariables.githubId = githubId
 
-    // Add package (for name & version)
-    const jsonFilePath: string = path.resolve(moduleFolderPath, 'package.json')
-    const jsonFileContent: Buffer = await fs.readFile(jsonFilePath)
-    const jsonPackage: xpmLib.JsonNpmPackage = JSON.parse(
-      jsonFileContent.toString()
-    ) as xpmLib.JsonNpmPackage
-    substitutionsVariables.package = jsonPackage
+    // ------------------------------------------------------------------------
+    // Add content of package.json (for name & version).
 
-    const platform = 'qemu-' + matrix.target
-    substitutionsVariables.platform = platform
+    const xpmPackage = new xpmLib.Package({
+      packageFolderPath: moduleFolderPath,
+      log: log,
+    })
+    const jsonPackage = await xpmPackage.readPackageDotJson({ withThrow: true })
+    substitutionsVariables.package = jsonPackage
 
     log.debug(`from='${this.templatesPath}'`)
     log.trace(util.inspect(substitutionsVariables))
