@@ -29,13 +29,13 @@ Dependencies
 
 In this Git repo:
 
-- in the `develop` branch
+- in the `xpack-development` branch
 - push everything
-- if needed, merge the `master` branch
+- if needed, merge the `xpack` branch
 
 ### Determine the next version
 
-Use the semantic versioning semantics.
+Use semantic versioning.
 
 Edit `package.json` to this version suffixed by `-pre`.
 
@@ -43,7 +43,7 @@ Edit `package.json` to this version suffixed by `-pre`.
 
 Check GitHub issues and pull requests:
 
-- <https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues/>
+- <https://github.com/micro-os-plus/hello-world-qemu-template-xpack/issues>
 
 ### Update versions in the README files
 
@@ -66,16 +66,16 @@ Check GitHub issues and pull requests:
 - commit all changes
 - `npm run test-all`
 - check the latest commits `npm run git-log`
-- `npm run pack`; check the content of the archive, which should list
+- `npm run npm-pack`; check the content of the archive, which should list
   only the following; possibly adjust `.npmignore`
 
 ```console
 CHANGELOG.md
 LICENSE
 README.md
-assets/...
-index.js
-lib/template.js
+dist/...
+templates/...
+src/...
 package.json
 === Bundled Dependencies ===
 ```
@@ -84,8 +84,8 @@ package.json
 - push all changes to GitHub; this should trigger CI
 - push tag
 - **wait for CI tests to complete**
-- check <https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/>
-- `npm publish --tag next` (use `--access public` when publishing for
+- check <https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions>
+- `npm publish --tag test` (use `--access public` when publishing for
   the first time)
 
 The version is visible at:
@@ -110,7 +110,7 @@ with combinations of properties.
 To run them, use:
 
 ```sh
-cd hello-world-qemu-template-xpack.git
+cd "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git"
 npm install
 xpm run test-all
 ```
@@ -118,7 +118,7 @@ xpm run test-all
 ## Continuous Integration
 
 All available tests are also performed on GitHub Actions, as the
-[CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml)
+[CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/test-ci.yml)
 workflow.
 
 ## Update the repo

@@ -1,7 +1,7 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@micro-os-plus/hello-world-qemu-template)](https://www.npmjs.com/package/@micro-os-plus/hello-world-qemu-template)
 [![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/micro-os-plus/hello-world-qemu-template-xpack)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack)
 [![license](https://img.shields.io/github/license/micro-os-plus/hello-world-qemu-template-xpack)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/blob/micro-os-plus/LICENSE)
-[![CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml/badge.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml)
+[![CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/test-ci.yml/badge.svg)](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/test-ci.yml)
 
 # A template to generate Hello World semihosted applications running on QEMU
 
@@ -44,7 +44,7 @@ to generate new projects.
 ## Prerequisites
 
 A recent [xpm](https://xpack.github.io/xpm/), which is a portable
-[Node.js](https://nodejs.org/) command line application.
+[Node.js](https://nodejs.org/) command-line application.
 
 ```sh
 npm install --global xpm@latest
@@ -65,12 +65,12 @@ For details please follow the instructions in the
 ### Template instantiation via `xpm init`
 
 Instantiating the template can be done via the `xpm init --template` command,
-pointing to this xPack.
+pointing to this xpm package.
 
 This command must be invoked in an empty folder, where the project
 will be generated.
 
-There are two modes, **interactive** and **scriptable** (non interactive).
+There are two modes, **interactive** and **scriptable** (non-interactive).
 
 #### Interactive mode
 
@@ -132,7 +132,6 @@ File '.clang-format' copied.
 File 'README.md' generated.
 File 'LICENSE' generated.
 File 'package.json' generated.
-%
 ```
 
 ### Satisfy dependencies
@@ -209,7 +208,6 @@ project folder:
 'xpacks/.bin/arm-none-eabi-size' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-size'
 'xpacks/.bin/arm-none-eabi-strings' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-strings'
 'xpacks/.bin/arm-none-eabi-strip' -> '../@xpack-dev-tools/arm-none-eabi-gcc/.content/bin/arm-none-eabi-strip'
-%
 ```
 
 ### Build and test
@@ -510,12 +508,13 @@ test 1
 100% tests passed, 0 tests failed out of 1
 
 Total Test time (real) =   0.04 sec
-%
 ```
 
 ### Toolchains
 
-The generated projects use the **xPack GNU Compiler Collection** toolchains.
+The generated projects use the **xPack GNU Arm Embedded GCC**,
+**xPack GNU AArch64 Embedded GCC**, and
+**xPack GNU RISC-V Embedded GCC** toolchains.
 
 ### Windows specifics
 
@@ -527,7 +526,7 @@ to use explicit programme extensions (such as `arm-none-eabi-gcc.cmd`).
 
 - none
 
-## Maintainer & developer info
+## Maintainer and developer info
 
 This page is addressed to those who plan to use the template directly.
 

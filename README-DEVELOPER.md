@@ -11,43 +11,53 @@ The project is hosted on GitHub:
 To clone it:
 
 ```sh
-cd ${HOME}/Work
+rm -rf "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git" && \
+mkdir -p "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git" && \
 git clone https://github.com/micro-os-plus/hello-world-qemu-template-xpack.git \
-  hello-world-qemu-template-xpack.git
+  "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git"
 ```
 
 To clone the development branch:
 
 ```sh
+rm -rf "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git" && \
+mkdir -p "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git" && \
 git clone --branch xpack-development \
   https://github.com/micro-os-plus/hello-world-qemu-template-xpack.git \
-  hello-world-qemu-template-xpack.git
+  "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git"
+```
+
+To update an existing repository:
+
+```sh
+git -C "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git" pull
 ```
 
 ## Prerequisites
 
 A recent [xpm](https://xpack.github.io/xpm/), which is a portable
-[Node.js](https://nodejs.org/) command line application.
+[Node.js](https://nodejs.org/) command-line application.
 
 ## Basic info
 
-The package is both an xPack (used by `xpm`) and a Node.js module (for
+The package is both an xpm package and a Node.js module (for
 running tests).
 
 To be accepted as a template by `xpm init`, a project must:
 
-- be an xPack (have a `package.json` with an `xpack` property
+- be an xPack (have a `package.json` with an `xpack` property)
 - have a property called `main` in `package.json`, pointing to a JavaScript
-  file that can be consumed by `require()`
-- the main file must export a class called `XpmInitTemplate`
-- an instances of this class must have a `run()` method.
+  file that can be consumed by `import`
+- the main file must export a class derived from `xpmLib.InitTemplateBase`, for
+  example `XpmInitTemplate`
 
 The template receives via the `context`:
 
-- a `log` object
-- the new project `config.name`, either given explicitly via
+- a log object `log`
+- the new project `config.projectName`, either given explicitly via
   `--name` or inferred from the folder name
-- a map of `config.properties`, given explicitly via `--property name=value`
+- a (possibly empty) `config.properties` object, with the command-line
+  options given explicitly via `--property name=value`
 
 ## Branches
 
@@ -57,7 +67,7 @@ Apart from the unused `master` branch, there are two active branches:
 - `xpack-development`, with the current development version
 
 All development is done in the `xpack-development` branch, and contributions via
-Pull Requests should be directed to this branch.
+pull requests should be directed to this branch.
 
 When new releases are published, the `xpack-development` branch is merged
 into `xpack`.
@@ -65,14 +75,20 @@ into `xpack`.
 ## Testing
 
 Normally the tests should consume the template via `xpm init`, but
-this goes through the global repo in the home folder, and requires to
-uninstall the xPack, to be sure that the latest version is used.
+this goes through the global repository in the home folder, and requires
+uninstalling the xPack to ensure that the latest version is used.
 
 To perform the tests, run the usual npm sequence:
 
 ```sh
-cd hello-world-qemu-template-xpack.git
+cd "${HOME}/Work/micro-os-plus/hello-world-qemu-template-xpack.git"
 npm install
+npm run test
+```
+
+To run the full set of tests:
+
+```sh
 npm run test-all
 ```
 
@@ -83,15 +99,12 @@ npm run test-all
 ## Continuous Integration
 
 All available tests are also performed on GitHub Actions, as the
-[CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/ci.yml)
+[CI on Push](https://github.com/micro-os-plus/hello-world-qemu-template-xpack/actions/workflows/test-ci.yml)
 workflow.
 
-## Standard compliance
+## TypeScript style compliance
 
-The module uses ECMAScript 6 class definitions.
-
-As style, it uses the [JavaScript Standard Style](https://standardjs.com/),
-automatically checked at each commit via Travis CI.
+For style compliance, it uses [typescript-eslint](https://typescript-eslint.io/packages/typescript-eslint/).
 
 Known and accepted exceptions:
 
@@ -102,23 +115,15 @@ To manually fix compliance with the style guide (where possible):
 ```console
 % npm run fix
 
-> @micro-os-plus/hello-world-qemu-template@1.2.0 fix
-> standard --fix
+> @micro-os-plus/hello-world-qemu-template@2.1.0 fix
+> eslint --config config/eslint.config.js --fix src tests
 
 ```
 
 ## Documentation metadata
 
-The documentation metadata follows the [JSdoc](http://usejsdoc.org) tags.
+The documentation metadata uses the [TSDoc](https://tsdoc.org) tags.
 
-To enforce checking at file level, add the following comments right after
-the `use strict`:
-
-```js
-'use strict'
-/* eslint valid-jsdoc: "error" */
-/* eslint max-len: [ "error", 80, { "ignoreUrls": true } ] */
-```
-
-Note: be sure C style comments are used, C++ styles are not parsed by
-[ESLint](http://eslint.org).
+> [!IMPORTANT]
+> Ensure that C-style comments are used, since C++-style comments are not
+> parsed by [ESLint](http://eslint.org).
